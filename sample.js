@@ -16,7 +16,7 @@ let picture=["img/kuizy.png","img/亀戸.png","img/麴町.png","img/御成門.pn
 
 // // 問題のタイトル
 // for(let i=1;i<selects.length+1;i++){
-// var open=document.getElementById('open');
+// var open=document.getElementById('open');uh
 // var question=document.createElement('div');
 // question.className='main'
 // var questionText=document.createTextNode(i+".この地名は何と読む？");
