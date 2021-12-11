@@ -1,0 +1,155 @@
+/* ページ全体 */
+body{
+  margin: 0 auto;
+  display: block;
+  width: 600px;
+}
+.main {
+  margin: 0 auto;
+  width: 570px;
+  margin-top: 90px;
+  margin-bottom: 90px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* 問題 */
+
+.issue {
+  margin-top: 20px;
+}
+
+.issue h1 {
+  font-size: 17px;
+}
+
+.issue h1::after{
+  display: block;
+    margin-top: 3px;
+    width: 100px;
+    height: 2px;
+    background-color: #00ab36;
+    content: ''
+}
+
+.issue img {
+  width: 97%;
+}
+
+.issue ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.issue li {
+  border:solid 2px  rgba(0,0,0,.05);
+  font-size: 20px;
+  margin-top: 10px;
+  box-shadow: rgba(0,0,0,.5) 0.5px 0.5px;
+  padding:10px 10px 10px 10px ;
+  cursor: pointer;
+}
+
+.issue li:hover{
+  transform: scale(1.02);
+}
+
+.issue p{
+  padding: 10px 10px 0px 10px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.issue .answer {
+  cursor: pointer;
+}
+
+
+.issue .answerarea {
+  display: none;
+  height: 77px;
+  line-height: 30px;
+  background-color: lightgrey;
+  margin-top: 20px;
+}
+
+.issue .answerarea_correct {
+  border-bottom: solid 1px #08b3f0 ;
+}
+
+.issue .answerarea_incorrect {
+  border-bottom:solid 1px  #fd6647;
+}
+
+#result{
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  list-style-type: none;
+  color: #000;
+  padding: 0;
+  text-align: center;
+  height: 40px;
+}
+
+.menu li {
+  position: relative;
+  width: 100px;
+  margin-left: 1px;
+  padding: 5px;
+  background: #e2eba3;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.menuSub {
+  position: absolute;
+  margin-left: -6px;
+  padding: 0;
+  display: none;
+}
+.menuSub li{
+  background-color: #dddddd;
+  font-size: 15px;
+}
+
+.menuSub li a {
+  padding: 5px;
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-bottom: -5px;
+  display: block;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menuSub li a:hover {
+  background: #FFCA7B;
+}
+
+li{
+  list-style-type: none;
+}
+
+.place{
+  margin: 0px;        /* ★サブメニュー外側の余白(ゼロ) */
+  padding: 0px;       /* ★サブメニュー内側の余白(ゼロ) */
+  display: none;      /* ★標準では非表示にする */
+  position: absolute; /* ★絶対配置にする */
+  top: -1px;          /* 1pxだけ上方向にずらす(※上に1pxの枠線を引いている場合) */
+  left: 100%;         /* ★基準位置からの距離を親ボックスの幅100％にする */
+  border-left: 1px solid pink; /* 左側に引く枠線(ピンク色で1pxの実線) */
+}
+
+.place li{
+  background-color: tomato;
+}
+.place li a:hover{
+  background-color: wheat;
+}
+
