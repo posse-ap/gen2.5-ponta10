@@ -1,0 +1,75 @@
+body{
+  margin: 0 auto;
+  display: block;
+  width: 600px;
+}
+.main {
+  margin: 0 auto;
+  width: 570px;
+  margin-top: 90px;
+  margin-bottom: 90px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* 問題 */
+
+.issue{
+  margin-top: 20px;
+  & .answer{
+    cursor: pointer;
+  }
+  & .answerarea{
+    display: none;
+    height: 77px;
+    line-height: 30px;
+    background-color: lightgrey;
+    margin-top: 20px;
+    &_correct{
+      border-bottom: solid 1px #08b3f0 ;
+    }
+    &_incorrect{
+      border-bottom:solid 1px  #fd6647;
+    }
+  }
+  & h1{
+    font-size: 17px;
+    &::after{
+      display: block;
+      margin-top: 3px;
+      width: 100px;
+      height: 2px;
+      background-color: #00ab36;
+      content: ''
+    }
+  }
+  & img{
+    width: 97%;
+  }
+  & ul{
+    list-style: none;
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  & li{
+    border:solid 2px  rgba(0,0,0,.05);
+    font-size: 20px;
+    margin-top: 10px;
+    box-shadow: rgba(0,0,0,.5) 0.5px 0.5px;
+    padding:10px 10px 10px 10px ;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.02);
+    }
+  }
+  & p{
+    padding: 10px 10px 0px 10px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+
+
+#result{
+  font-size: 16px;
+  font-weight: lighter;
+}

@@ -1,0 +1,89 @@
+@charset "UTF-8";
+body {
+  margin: 0 auto;
+  display: block;
+  width: 600px;
+}
+
+.main {
+  margin: 0 auto;
+  width: 570px;
+  margin-top: 90px;
+  margin-bottom: 90px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* 問題 */
+.issue {
+  margin-top: 20px;
+}
+
+.issue .answer {
+  cursor: pointer;
+}
+
+.issue .answerarea {
+  display: none;
+  height: 77px;
+  line-height: 30px;
+  background-color: lightgrey;
+  margin-top: 20px;
+}
+
+.issue .answerarea_correct {
+  border-bottom: solid 1px #08b3f0;
+}
+
+.issue .answerarea_incorrect {
+  border-bottom: solid 1px  #fd6647;
+}
+
+.issue h1 {
+  font-size: 17px;
+}
+
+.issue h1::after {
+  display: block;
+  margin-top: 3px;
+  width: 100px;
+  height: 2px;
+  background-color: #00ab36;
+  content: '';
+}
+
+.issue img {
+  width: 97%;
+}
+
+.issue ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.issue li {
+  border: solid 2px rgba(0, 0, 0, 0.05);
+  font-size: 20px;
+  margin-top: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0.5px 0.5px;
+          box-shadow: rgba(0, 0, 0, 0.5) 0.5px 0.5px;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+}
+
+.issue li:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.issue p {
+  padding: 10px 10px 0px 10px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#result {
+  font-size: 16px;
+  font-weight: lighter;
+}
+/*# sourceMappingURL=style.css.map */
