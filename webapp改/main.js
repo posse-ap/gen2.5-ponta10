@@ -114,7 +114,7 @@ function drawChart2() {
   ]);
 
   var options = {
-    pieHole: 0.5,
+    pieHole: 0.4,
     backgroundColor: "transparent",
     legend: "none",
     fontSize: 15,
@@ -145,7 +145,7 @@ function drawChart() {
   ]);
 
   var options = {
-    pieHole: 0.5,
+    pieHole: 0.4,
     backgroundColor: "transparent",
     colors: [
       "#1F45FC",
