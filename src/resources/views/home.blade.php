@@ -17,7 +17,7 @@
   <div class="black"></div>
   <header>
     <div class="logo">
-      <img src="img/ponta.png" />
+      <img src="img/ponta.png" class="img"/>
       <p>4th week</p>
     </div>
     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

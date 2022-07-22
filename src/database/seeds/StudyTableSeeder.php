@@ -15,6 +15,7 @@ class StudyTableSeeder extends Seeder
         $params = [
             [
                 'hour' => 3,
+                'user_id' => 1,
                 'content' => 'ドットインストール',
                 'language' => 'CSS',
                 'date' => '2022-07-02',
@@ -23,6 +24,7 @@ class StudyTableSeeder extends Seeder
             ],
             [
                 'hour' => 2,
+                'user_id' => 1,
                 'content' => 'N予備校',
                 'language' => 'PHP',
                 'date' => '2022-07-08',
@@ -31,6 +33,7 @@ class StudyTableSeeder extends Seeder
             ],
             [
                 'hour' => 1,
+                'user_id' => 2,
                 'content' => 'ドットインストール',
                 'language' => 'Laravel',
                 'date' => '2022-07-12',
@@ -39,6 +42,7 @@ class StudyTableSeeder extends Seeder
             ],            
             [
                 'hour' => 4,
+                'user_id' => 2,
                 'content' => 'POSSE課題',
                 'language' => 'SQL',
                 'date' => '2022-07-15',

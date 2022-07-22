@@ -15,6 +15,7 @@ class CreateStudiesTable extends Migration
     {
         Schema::create('studies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
             $table->integer('hour');
             $table->string('content',255);
             $table->string('language',255);

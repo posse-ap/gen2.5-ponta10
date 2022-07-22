@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    Mail::to('test@example.com')->send(new Test);
+    return 'メール送信しました！';
+});
+
 Route::get('/home','HomeController@index');
 
 Route::post('/store','HomeController@store')->name('store');

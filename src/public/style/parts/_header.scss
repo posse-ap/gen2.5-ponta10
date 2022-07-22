@@ -1,3 +1,8 @@
+.img {
+  height: 8vh;
+  object-fit: cover;
+}
+
 header {
   background-color: #fff;
   display: flex;
@@ -8,7 +13,7 @@ header {
   & .logo {
     display: flex;
   }
-  & img {
+  & .img {
     height: 8vh;
     object-fit: cover;
   }
@@ -19,3 +24,4 @@ header {
     display: none;
   }
 }
+

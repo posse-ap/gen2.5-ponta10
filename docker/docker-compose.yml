@@ -19,7 +19,9 @@ services:
       context: ./app
     volumes:
       - ../src:/work/backend
-    depends_on: ["db"]
+    depends_on:
+      - mailhog
+      - db
   web:
     build:
       context: ./web
@@ -27,4 +29,9 @@ services:
       - 80:80
     volumes:
       - ../src:/work/backend
-    depends_on: ["app"]
+    depends_on: [ "app" ]
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+    - "1025:1025"
+    - "8025:8025"

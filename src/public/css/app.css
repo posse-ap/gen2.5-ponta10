@@ -3299,7 +3299,8 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #3490dc;
+  color: #fff;
+  font-weight: 500;
   text-decoration: none;
 }
 
