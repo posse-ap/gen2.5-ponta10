@@ -25,6 +25,7 @@ Route::get('/test', function () {
 Route::get('/home','HomeController@index');
 
 Route::post('/store','HomeController@store')->name('store');
+// Route::post('/time_store','HomeController@time_store')->name('time_store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -60,4 +60,19 @@ class HomeController extends Controller
         ]);
         return redirect('/home');
     }
+
+    // public function time_store(Request $request)
+    // {
+    //     $data = $request->all();
+    //     $user = \Auth::user();
+    //     $date = date("Y-m-d");
+    //     $create_hour = Study::insertGetId([
+    //         'user_id' => $user['id'],
+    //         'hour' => $data['timerHour'],
+    //         'content' => $data['contents'],
+    //         'language' => $data['languages'],
+    //         'date' => $date,
+    //     ]);
+    //     return redirect('/home');
+    // }
 }

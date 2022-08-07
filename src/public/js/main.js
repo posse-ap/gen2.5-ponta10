@@ -101,6 +101,14 @@ $(function(){
   });
 });
 
+const pengin = document.querySelector(".pengin");
+const timer = document.querySelector(".time");
+pengin.addEventListener("click",function(){
+  console.log("aaa")
+  timer.style.display = "block";
+  black.classList.add('blacky');
+})
+
 
 
 

@@ -19,6 +19,7 @@
     <div class="logo">
       <img src="img/ponta.png" class="img"/>
       <p>4th week</p>
+      <img src="img/pengin.png" alt="" class="pengin">
     </div>
     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
@@ -89,8 +90,55 @@
         </section>
       </aside>
     </div>
+    <div class="time">
+    <form name="e" action="" class="form">
+     <div class="setTimer">
+          <select id="study"></select>
+          <span class="koron">:</span>
+          <select id="rest"></select>
+     </div>
+     <div class="setSelect">
+     <select id="language">
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="PHP">PHP</option>
+          <option value="Laravel">Laravel</option>
+          <option value="SQL">SQL</option>
+          <option value="React">React</option>
+          <option value="WordPress">WordPress</option>
+          <option value="GitHub">GitHub</option>
+      </select>
+      <select id="content">
+          <option value="N予備校">N予備校</option>
+          <option value="ドットインストール">ドットインストール</option>
+          <option value="POSSE課題">POSSE課題</option>
+          <option value="Udemy">Udemy</option>
+          <option value="自主制作">自主制作</option>
+          <option value="その他">その他</option>
+      </select>
+     </div>
+      <button type="button" onclick="display()" onunload="clearTimeout(tid)" class="startBtn">
+        スタート
+      </button>
+    </form>
+    <form name="f" action="{{ route('store')}}" method="post" enctype="multipart/form-data" class="form2">
+      @csrf
+          <input type="text" name="days" size="25" class="timer"/>
+          <div class="setInput">
+          <input type="text" name="language" class="language">
+          <input type="text" name="contents" class="content">
+          <input type="hidden" name="time" class="timerHour" >
+          <input type="hidden" name="date" value="<?= date("Y-m-d")?>" />
+          </div>
+          <button type="submit" class="timeRecord">
+               記録する
+            </button>
+    </form>
+</div>
+    <p class="timer"><span id="hour"></span></span>:<span id="min"></span>:<span id="sec"></span></p>
     <section class="date">
-      <p>2022年12月<span>></span></p>
+      <p><span><</span>2022年12月<span>></span></p>
     </section>
     <section class="btn" onclick="recording()">
       <button class="record">記録・投稿</button>
@@ -322,6 +370,95 @@
         },
       },
     });
+    
+    let dat1 = 24 * 60 * 60 * 1000;
+let millenium;
+let count = 0;
+let countSecond = 0;
+let study = document.getElementById("study");
+let rest = document.getElementById("rest");
+
+
+function time(value) {
+  for (let i = 0; i < 60; i++) {
+    let option = `<option value="${i}">${i}</option>`;
+    if(i == 25){
+         if(value == "study"){
+              option = `<option value="${i}" selected>${i}</option>`;
+         }
+    }else if(i == 5){
+         if(value == "rest"){
+              option = `<option value="${i}" selected>${i}</option>`;
+         }
+    } 
+    document.getElementById(`${value}`).insertAdjacentHTML("beforeend", option);
+  }
+}
+time("study");
+time("rest");
+
+
+function setLastMinutes(max) {
+  millenium = new Date();
+  millenium.setMinutes(millenium.getMinutes() + max);
+}
+
+function display() {
+  let today = new Date();
+  // if ( !millenium || (millenium < today) ) setLastMinute(5);
+  if (!millenium) {
+    setLastMinutes(Number(study.value));
+    countSecond+1;
+  }
+  countSecond++
+  if (millenium < today) {
+    count++;
+    if (count % 2 !== 0) {
+      setLastMinutes(Number(rest.value));
+    } else {
+      setLastMinutes(Number(study.value));
+    }
+  }
+
+  const language = document.querySelector("#language")
+  document.f.language.value = language.value
+
+  
+  const content = document.querySelector("#content")
+  document.f.contents.value = content.value;
+
+  if (count % 2 !== 0) {
+      countSecond--;
+      document.f.language.value = "休憩中";
+    }
+  let milliSec = (millenium - today) % dat1;
+  time1 = Math.floor(milliSec / (60 * 60 * 1000));
+  time2 = Math.floor(milliSec / (60 * 1000)) % 60;
+  time3 = (Math.floor(milliSec / 1000) % 60) % 60;
+
+  times2 = ("00" + time2).slice(-2);
+  times3 = ("00" + time3).slice(-2);
+
+  document.f.days.value =
+    times2 +
+    ":" +
+    times3
+    
+
+    const timeRecord = document.querySelector(".timeRecord");
+
+     document.e.style.display = "none";
+     timeRecord.style.display = "block";
+     document.f.days.style.display = "block";
+     document.f.language.style.display = "block";
+
+  tid = setTimeout("display()", 1000);
+
+  const timerHour = document.querySelector(".timerHour");
+  const hour = countSecond / 3600;
+  timerHour.setAttribute("value", hour);
+}
+
   </script>
   <script src="{{ asset('/js/main.js') }}"></script>
 </body>
