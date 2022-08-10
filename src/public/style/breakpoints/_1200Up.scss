@@ -21,11 +21,11 @@ header{
     justify-content: space-between;
   }
   & article{
-    width: 49%;
+    width: 39%;
   }
   
   & aside{
-    width: 49%;
+    width: 59%;
   }
   & .hourBox{
     height: 24vh;
@@ -39,14 +39,12 @@ header{
   }
   & .bar{
     height: 50vh;
-    & #myBarChart{
-      padding-top: 50px;
-    }
   }
   & .circle{
     & .circleBox{
       height: 76vh;
       width: 48%;
+      padding: 32px;
     }
     & svg{
       margin-top: 50px;

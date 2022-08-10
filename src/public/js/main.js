@@ -66,19 +66,22 @@ const errorLanguage = document.querySelector('.language');
 const errorDay = document.querySelector('.day');
 const errorTimes = document.querySelector('.times');
 let inputDay = document.querySelector('input[name="date"]');
-let inputTime = document.querySelector('input[name="time"]')
+let inputTime = document.querySelector('input[name="times"]')
+let selectLanguage = document.querySelector('.lan');
+let selectContents = document.querySelector('.con');
+
+
+
 
 //記録・投稿 エラー表示
 $(function(){
   $('.btnRecord').click(function(){
-    var check_language = $('.modal-language :checked').length;
-    var check_contents = $('.modal-contents :checked').length;
-    if (check_language === 0){
+    if (selectLanguage.value === ""){
       errorLanguage.style.display="inline"
     }else{
       errorLanguage.style.display="none"
     }
-    if(check_contents === 0){
+    if(selectContents.value === ""){
       errorContents.style.display="inline"
     }else{
       errorContents.style.display="none"
@@ -88,15 +91,14 @@ $(function(){
     }else{
       errorDay.style.display ="none"
     }
-    if(isNaN(inputTime.value) === true || inputTime.value === ''){
+    if(isNaN(inputTime.value) == true || inputTime.value === ''){
       errorTimes.style.display="inline"
+      console.log(inputTime.value)
     }else{
       errorTimes.style.display="none"
     }
-    if(check_language !== 0 && check_contents !==0 && inputDay.value !== '' && isNaN(inputTime.value) === false && inputTime.value !== ''){
-      console.log(inputDay.value)
+    if(selectLanguage.value !== "" && selectContents.value !== "" && inputDay.value !== '' && isNaN(inputTime.value) == false && inputTime.value !== ''){
       recordDisplay();
-      console.log(inputTime.value)
     }
   });
 });
@@ -119,6 +121,95 @@ pengin.addEventListener("click",function(){
 
 
 
+let dat1 = 24 * 60 * 60 * 1000;
+let millenium;
+let count = 0;
+let countSecond = 0;
+let study = document.getElementById("study");
+let rest = document.getElementById("rest");
 
+
+function time(value) {
+  for (let i = 0; i < 60; i++) {
+    let option = `<option value="${i}">${i}</option>`;
+    if(i == 25){
+         if(value == "study"){
+              option = `<option value="${i}" selected>${i}</option>`;
+         }
+    }else if(i == 5){
+         if(value == "rest"){
+              option = `<option value="${i}" selected>${i}</option>`;
+         }
+    } 
+    document.getElementById(`${value}`).insertAdjacentHTML("beforeend", option);
+  }
+}
+time("study");
+time("rest");
+
+
+function setLastMinutes(max) {
+  millenium = new Date();
+  millenium.setMinutes(millenium.getMinutes() + max);
+}
+
+function display() {
+  let today = new Date();
+  // if ( !millenium || (millenium < today) ) setLastMinute(5);
+  if (!millenium) {
+    setLastMinutes(Number(study.value));
+    countSecond+1;
+  }
+  countSecond++
+  if (millenium < today) {
+    count++;
+    if (count % 2 !== 0) {
+      setLastMinutes(Number(rest.value));
+    } else {
+      setLastMinutes(Number(study.value));
+    }
+  }
+
+  const language = document.querySelector("#language")
+  document.f.language.value = language.value
+
+  
+  const content = document.querySelector("#content")
+  document.f.contents.value = content.value;
+
+  if (count % 2 !== 0) {
+      countSecond--;
+      hour = study.value * (count + 1) / (60 * 2);
+      document.f.languages.value = "休憩中";
+    }else{
+             hour = study.value * ((count + 2) / 2) / 60;
+    }
+  let milliSec = (millenium - today) % dat1;
+  time1 = Math.floor(milliSec / (60 * 60 * 1000));
+  time2 = Math.floor(milliSec / (60 * 1000)) % 60;
+  time3 = (Math.floor(milliSec / 1000) % 60) % 60;
+
+  times2 = ("00" + time2).slice(-2);
+  times3 = ("00" + time3).slice(-2);
+
+  document.f.days.value =
+    times2 +
+    ":" +
+    times3
+    
+
+    const timeRecord = document.querySelector(".timeRecord");
+
+     document.e.style.display = "none";
+     timeRecord.style.display = "block";
+     document.f.days.style.display = "block";
+     document.f.language.style.display = "block";
+
+  tid = setTimeout("display()", 1000);
+
+  const timerHour = document.querySelector(".timerHour");
+
+  timerHour.setAttribute("value", hour);
+}
 
 

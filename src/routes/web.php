@@ -25,7 +25,15 @@ Route::get('/test', function () {
 Route::get('/home','HomeController@index');
 
 Route::post('/store','HomeController@store')->name('store');
-// Route::post('/time_store','HomeController@time_store')->name('time_store');
+Route::post('/todo_store','HomeController@todo_store')->name('todo_store');
+Route::post('/todo_update/{todo_id}','HomeController@todo_update')->name('todo_update');
+Route::post('/todo_delete/{todo_id}','HomeController@todo_delete')->name('todo_delete');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/week/{id}', 'HomeController@week')->name('week');
+
+
