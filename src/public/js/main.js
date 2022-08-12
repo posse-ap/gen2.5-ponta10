@@ -173,7 +173,6 @@ function display() {
   const language = document.querySelector("#language")
   document.f.language.value = language.value
 
-  
   const content = document.querySelector("#content")
   document.f.contents.value = content.value;
 
@@ -211,5 +210,6 @@ function display() {
 
   timerHour.setAttribute("value", hour);
 }
+
 
 

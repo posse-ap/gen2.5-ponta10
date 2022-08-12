@@ -28,11 +28,13 @@ Route::post('/store','HomeController@store')->name('store');
 Route::post('/todo_store','HomeController@todo_store')->name('todo_store');
 Route::post('/todo_update/{todo_id}','HomeController@todo_update')->name('todo_update');
 Route::post('/todo_delete/{todo_id}','HomeController@todo_delete')->name('todo_delete');
+Route::post('/week_store','HomeController@week_store')->name('week_store');
+Route::post('/month_store','HomeController@month_store')->name('month_store');
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/{id}', 'HomeController@index')->name('home');
 
 Route::get('/week/{id}', 'HomeController@week')->name('week');
 

@@ -15,12 +15,16 @@
 
 <body>
   <div class="black"></div>
+  <a href="{{ route('week', [ 'id' => $id + 1 ]) }}" class="before"><img src="{{ asset('img/iconmonstr-angel-left-circle-thin-240.png') }}" alt=""></a>
+  @if($id > 0)
+  <a href="{{ route('week', [ 'id' => $id - 1 ]) }}" class="after"><img src="{{ asset('img/iconmonstr-angel-right-circle-thin-240.png') }}" alt=""></a>
+  @endif
   <header>
     <div class="logo">
       <img src="{{ asset('/img/ponta.png') }}" class="img"/>
       <img src="{{ asset('/img/pengin.png') }}" alt="" class="pengin">
       <div>
-      <a href="{{ route('home') }}" class="link">月</a>
+      <a href="{{ route('home',['id' => 0]) }}" class="link">月</a>
       <a href="#" class="now link">週</a>
       </div>
     </div>
@@ -62,51 +66,8 @@
       </article>
       <aside>
         <section class="circle">
-        <div class="circle-contents circleBox">
-               <p>今週のtodo</p><a href="https://docs.google.com/spreadsheets/d/1dyAbtikJKsCy0qiQiw4nhMWUt5jZufgl4tTHbErFHSE/edit#gid=0">今週の課題はこちら</a>
-               <form action="{{ route('todo_store')}}" method="post" enctype="multipart/form-data">
-                @csrf
-               <input type="text" name="todo">
-               <div class="add">
-                    <select name="deadline" id="">
-                      @foreach($weekAfterArray as $key => $value)
-                         <option value="{{ $value }}">{{ $value }} ({{$key}})</option>
-                      @endforeach
-                    </select>
-                    <button type="submit">新規追加</button> 
-               </div>  
-               </form>
-               <div class="scrollTodo">
-               @foreach($todos as $todo)
-               <div class="todo">
-                <form action="{{route('todo_delete',['todo_id' => $todo['id'] ])}}" method="post" enctype="multipart/form">
-                  @csrf
-                  <p>{{$todo->deadline}}〆<input type="image" src="{{ asset('\img\iconmonstr-trash-can-9-240.png') }}" class="image"></p>
-                </form>
-                    <div class="edit">
-                         <h3>{{$todo->text}}</h3>
-                         <form action="{{ route('todo_update',[ 'todo_id' => $todo['id'] ]) }}" method="post" enctype="multipart/form-data">
-                          @csrf
-                           <button class="btnEdit">完了</button>
-                         </form>
-                    </div>
-               </div>
-               @endforeach
-               @foreach($done_todos as $todo)
-               <div class="todo">
-                <div>
-                  @csrf
-                  <p class="done">{{$todo->deadline}}〆
-                </div>
-                    <div class="edit">
-                         <h3 class="done">{{$todo->text}}</h3>
-                    </div>
-               </div>
-               @endforeach
-               </div>
-             </div>
-          <div class="circle-language circleBox">
-            <p>学習言語</p>
+        <div class="circle-language circleBox">
+        <p>学習言語</p>
             <form action="{{ route('store')}}" method="post" enctype="multipart/form-data">
                <input type="submit" class="languageSubmit" value="HTML">
                <div class="border HTML"></div><span id="HTML"></span>
@@ -127,6 +88,54 @@
                <input type="submit" class="languageSubmit" value="GitHub">
                <div class="border GitHub"></div><span id="GitHub"></span>
             </form>
+ 
+             </div>
+          <div class="circle-contents circleBox">
+          <p>今週のtodo</p><a href="https://docs.google.com/spreadsheets/d/1dyAbtikJKsCy0qiQiw4nhMWUt5jZufgl4tTHbErFHSE/edit#gid=0">今週の課題はこちら</a>
+               <form action="{{ route('todo_store')}}" method="post" enctype="multipart/form-data">
+                @csrf
+               <input type="text" name="todo">
+               <div class="add">
+                    <select name="deadline" id="">
+                      @foreach($weekAfterArray as $key => $value)
+                         <option value="{{ $value }}">{{ $value }} ({{$key}})</option>
+                      @endforeach
+                    </select>
+                    <button type="submit">新規追加</button> 
+               </div>  
+               </form>
+               <div class="scrollTodo">
+               @foreach($todoArray as $key => $todo)
+               @if($todo !== '')
+               <div class="todo">
+                <form action="{{route('todo_delete',['todo_id' => $todo['id'] ])}}" method="post" enctype="multipart/form">
+                  @csrf
+                  <p>{{$todo->deadline}}〆<input type="image" src="{{ asset('\img\iconmonstr-trash-can-9-240.png') }}" class="image"></p>
+                </form>
+                    <div class="edit">
+                         <h3>{{$todo->text}}</h3>
+                         <form action="{{ route('todo_update',[ 'todo_id' => $todo['id'] ]) }}" method="post" enctype="multipart/form-data">
+                          @csrf
+                           <button class="btnEdit">完了</button>
+                         </form>
+                    </div>
+               </div>
+               @endif
+               @endforeach
+               @foreach($done_todoArray as $key => $todo)
+               @if($todo !== '')
+               <div class="todo">
+                <div>
+                  @csrf
+                  <p class="done">{{$todo->deadline}}〆
+                </div>
+                    <div class="edit">
+                         <h3 class="done">{{$todo->text}}</h3>
+                    </div>
+               </div>
+               @endif
+               @endforeach
+               </div>
           </div>
         </section>
       </aside>
@@ -179,7 +188,10 @@
 </div>
     <p class="timer"><span id="hour"></span></span>:<span id="min"></span>:<span id="sec"></span></p>
     <section class="date">
-      <p><span><</span>2022年12月<span>></span></p>
+      <form  method="post" action="{{ route('week_store')}}" enctype="multipart/form-data" class="weekForm">
+        @csrf
+      <select name="week" id="week" onchange="submit(this.form)"></select>
+      </form>
     </section>
     <section class="btn" onclick="recording()">
       <button class="record">記録・投稿</button>
@@ -258,6 +270,21 @@
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script >
+
+
+function time(value) {
+  @foreach($weeks as $key => $week)
+    let selection{{$key}} = `<option value="{{$key}}">{{$week}}</option>`;
+    if({{$key}} == {{$id}}){
+        selection{{$key}} = `<option value="{{$key}}" selected>{{$week}}</option>`;
+    }
+    document.getElementById(`${value}`).insertAdjacentHTML("beforeend", selection{{$key}});
+  @endforeach
+}
+time("week");
+
+
+
          flatpickr.localize(flatpickr.l10ns.ja);
     flatpickr("#calendarTEST");
        var ctx = document.getElementById("myBarChart");
