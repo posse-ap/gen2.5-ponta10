@@ -7,14 +7,24 @@ const text = document.querySelector('.modal-text');
 const passed = document.querySelector('.end');
 const closed = document.querySelector('.closeBtn')
 const closed2 = document.querySelector('.closeBtn2')
+const closed3 = document.querySelector('.closeBtn3')
 const tweet = document.querySelector('.tweet');
 const comment = document.querySelector('.comment');
 const checkboxes = document.querySelectorAll('.checkbox');
+const header = document.querySelector("header");
+
 // const record = document.querySelector('.btnRecord');
 
 //モーダルオープン
 function recording(){
   modal.classList.add('trans');
+  black.classList.add('blacky');
+  btn.classList.add('start');
+}
+
+const set = document.querySelector(".set");
+function setting(){
+  set.classList.add('trans');
   black.classList.add('blacky');
   btn.classList.add('start');
 }
@@ -36,7 +46,10 @@ closed2.addEventListener('click',function(){
   },500)
 })
 
-
+closed3.addEventListener('click',function(){
+  set.classList.remove('trans');
+  black.classList.remove('blacky');
+})
 
 //記録投稿
 function recordDisplay(){
@@ -110,6 +123,35 @@ pengin.addEventListener("click",function(){
   timer.style.display = "block";
   black.classList.add('blacky');
 })
+
+const close4 = document.querySelector(".closeBtn4");
+close4.addEventListener("click",function(){
+  black.classList.remove('blacky');
+  timer.style.display = "none";
+})
+
+function getConversionRgba(color_code, alpha = 1) {
+  var rgba_code = [];
+
+  rgba_code['red']   = parseInt(color_code.substring(1,3), 16);
+  rgba_code['green'] = parseInt(color_code.substring(3,5), 16);
+  rgba_code['blue']  = parseInt(color_code.substring(5,7), 16);
+  rgba_code['alpha'] = alpha;
+  rgba_code['full']  = Object.values(rgba_code).join(',');
+
+  return 'rgba(' + rgba_code['full'] + ')';
+}
+
+const color = document.getElementById("color");
+const colorBtn = document.querySelector(".colorBtn");
+colorBtn.addEventListener("click", () => {
+  const rgbaValue = getConversionRgba(color.value);
+  let backColor = rgbaValue.replace('1)','0.3)');
+  console.log(backColor);
+  document.body.style.backgroundColor = backColor;
+  header.style.backgroundColor = color.value;
+})
+
 
 
 

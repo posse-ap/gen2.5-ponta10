@@ -70,7 +70,7 @@ class HomeController extends Controller
         $date = Carbon::now();
         $dateCount = $date->dayOfWeek; // 0。週のうちの何日目か 0 (日曜)から 6 (土曜)
         $week = ['日','月','火','水','木','金','土'];
-        $languages = ['HTML','CSS','JavaScript','PHP','Laravel','SQL','React','WordPress','GitHub'];
+        $languages = Language::where('status',1)->get();
         for ($weekCount = -$dateCount - ($id * 7); $weekCount < 7 - $dateCount - ($id * 7); $weekCount++):
             $weekDate = date("Y-m-d",strtotime($date .  $weekCount . " day"));
             $weekDateArray2[$week[$weekCount + $dateCount + ($id * 7)]] = $weekDate;
@@ -97,28 +97,28 @@ class HomeController extends Controller
 
 
             foreach($languages as $language):
-                for($weekCount = -$dateCount - ($id * 7); $weekCount < 7 - $dateCount - ($id * 7) - $dateCount; $weekCount++): 
+                for($weekCount = -$dateCount - ($id * 7); $weekCount < 7 - $dateCount - ($id * 7); $weekCount++): 
                     $weekDate = date("Y-m-d",strtotime($date .  $weekCount . " day"));
-            $languageSum = Study::where('user_id',$user['id'])->where('language', $language)->where('date', $weekDate)->sum('hour');
+            $languageSum = Study::where('user_id',$user['id'])->where('language', $language->name)->where('date', $weekDate)->sum('hour');
             $languageArray[$week[$weekCount + $dateCount + ($id * 7)]] = isset($languageSum) ? $languageSum : 0;
                 endfor;
             $languageWeek = array_sum($languageArray);
-            $languageWeekArray[$language] = $languageWeek;
+            // dd($languageWeek);
+            $languageWeekArray[$language->name] = $languageWeek;
             endforeach;
-
-
             $languageAll = array_sum($languageWeekArray);
+
 
             foreach($languages as $language):
                 for($weekCount = -$dateCount - ($id * 7); $weekCount < 7 -$dateCount - ($id * 7); $weekCount++): 
             $weekDate = date("Y-m-d",strtotime($date .  $weekCount . " day"));
-            $languageSum = Study::where('user_id',$user['id'])->where('language', $language)->where('date', $weekDate)->sum('hour');
+            $languageSum = Study::where('user_id',$user['id'])->where('language', $language->name)->where('date', $weekDate)->sum('hour');
             $languageArray[$week[$weekCount + $dateCount + ($id * 7)]] = isset($languageSum) ? $languageSum : 0;
                 endfor;
             $languageWeek = array_sum($languageArray);
-            $languageAll == 0 ? $languageWeekRatioArray[$language] = 0 : $languageWeekRatioArray[$language] = round( $languageWeek / $languageAll ,2) * 100;
+            $languageAll == 0 ? $languageWeekRatioArray[$language->name] = 0 : $languageWeekRatioArray[$language->name] = round( $languageWeek / $languageAll ,2) * 100;
             endforeach;
-
+// dd($languageWeekRatioArray);
         $weekSum = array_sum($weekArray);
         $averageArray = array_filter($weekArray,function($value){
             return $value !== 0;
@@ -136,7 +136,8 @@ class HomeController extends Controller
             $weeks[] = $weekDateArray["日"] . '~' . $weekDateArray["土"];
         endfor;
 
-        return view('week',compact('todaySum','weekSum','average','languageWeekArray','languageWeekRatioArray','weekArray','todoArray','done_todoArray','weekAfterArray','weeks','id'));
+
+        return view('week',compact('todaySum','weekSum','average','languageWeekArray','languageWeekRatioArray','weekArray','todoArray','done_todoArray','weekAfterArray','weeks','id','languages'));
     }
 
 
@@ -151,7 +152,7 @@ class HomeController extends Controller
             'language' => $data['language'],
             'date' => $data['date'],
         ]);
-        return redirect('/home');
+        return redirect()->route('home',['id' => 0]);
     }
 
     function todo_store(Request $request)
@@ -207,7 +208,7 @@ class HomeController extends Controller
             'text' => $data['languageText'],
             'status' => 1,
         ]);
-        return redirect()->route('home',['id' => 0]);
+        return redirect()->route('week',['id' => 0]);
     }
 
     public function language_delete(Request $request,$language_id)
@@ -217,6 +218,8 @@ class HomeController extends Controller
         $data = $request->all();
         Language::where('id',$language_id)->update(['status' => 2]);
 
-        return redirect()->route('home',['id' => 0]);
+
+
+        return redirect()->route('week',['id' => 0]);
     }
 }

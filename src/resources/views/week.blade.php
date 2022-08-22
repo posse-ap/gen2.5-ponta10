@@ -21,20 +21,21 @@
   @endif
   <header>
     <div class="logo">
-      <img src="{{ asset('/img/ponta.png') }}" class="img"/>
+      <img src="{{ asset('/img/ponta.png') }}" class="img" />
       <img src="{{ asset('/img/pengin.png') }}" alt="" class="pengin">
       <div>
-      <a href="{{ route('home',['id' => 0]) }}" class="link">月</a>
-      <a href="#" class="now link">週</a>
+        <a href="{{ route('home',['id' => 0]) }}" class="link">月</a>
+        <a href="#" class="now link">週</a>
       </div>
     </div>
     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
-          {{ __('Logout') }}
-     </a>
-     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+      {{ __('Logout') }}
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      @csrf
+    </form>
+    <img src="{{asset('/img/iconmonstr-gear-8-240.png')}}" alt="" class="setting" onclick="setting()">
     <section class="btn" onclick="recording()">
       <button class="record">記録・投稿</button>
     </section>
@@ -66,131 +67,115 @@
       </article>
       <aside>
         <section class="circle">
-        <div class="circle-language circleBox">
-        <p>学習言語</p>
-            <form action="{{ route('store')}}" method="post" enctype="multipart/form-data">
-               <input type="submit" class="languageSubmit" value="HTML">
-               <div class="border HTML"></div><span id="HTML"></span>
-               <input type="submit" class="languageSubmit" value="CSS">
-               <div class="border CSS"></div><span id="CSS"></span>
-               <input type="submit" class="languageSubmit" value="JavaScript">
-               <div class="border JavaScript"></div><span id="JavaScript"></span>
-               <input type="submit" class="languageSubmit" value="PHP">
-               <div class="border PHP"></div><span id="PHP"></span>
-               <input type="submit" class="languageSubmit" value="Laravel">
-               <div class="border Laravel"></div><span id="Laravel"></span>
-               <input type="submit" class="languageSubmit" value="SQL">
-               <div class="border SQL"></div><span id="SQL"></span>
-               <input type="submit" class="languageSubmit" value="React">
-               <div class="border React"></div><span id="React"></span>
-               <input type="submit" class="languageSubmit" value="WordPress">
-               <div class="border WordPress"></div><span id="WordPress"></span>
-               <input type="submit" class="languageSubmit" value="GitHub">
-               <div class="border GitHub"></div><span id="GitHub"></span>
-            </form>
- 
-             </div>
-          <div class="circle-contents circleBox">
-          <p>今週のtodo</p><a href="https://docs.google.com/spreadsheets/d/1dyAbtikJKsCy0qiQiw4nhMWUt5jZufgl4tTHbErFHSE/edit#gid=0">今週の課題はこちら</a>
-               <form action="{{ route('todo_store')}}" method="post" enctype="multipart/form-data">
+          <div class="circle-language circleBox">
+            <p>学習言語</p>
+            @foreach($languages as $language)
+            <div class="language-container">
+              <a href="{{ route('language',['language_id' => $language->id] )}}" class="languageSubmit">{{$language->name}}</a>
+              <form action="{{ route('language_delete',['language_id' => $language->id ]) }}" method="post" enctype="multipart/form">
                 @csrf
-               <input type="text" name="todo">
-               <div class="add">
-                    <select name="deadline" id="">
-                      @foreach($weekAfterArray as $key => $value)
-                         <option value="{{ $value }}">{{ $value }} ({{$key}})</option>
-                      @endforeach
-                    </select>
-                    <button type="submit">新規追加</button> 
-               </div>  
-               </form>
-               <div class="scrollTodo">
-               @foreach($todoArray as $key => $todo)
-               @if($todo !== '')
-               <div class="todo">
+                <input type="image" src="{{ asset('\img\iconmonstr-trash-can-9-240.png') }}" class="image">
+              </form>
+            </div>
+            <div class="border {{$language->name}}"></div><span id="{{$language->name}}"></span>
+            @endforeach
+          </div>
+          <div class="circle-contents circleBox">
+            <p>今週のtodo</p><a href="https://docs.google.com/spreadsheets/d/1dyAbtikJKsCy0qiQiw4nhMWUt5jZufgl4tTHbErFHSE/edit#gid=0">今週の課題はこちら</a>
+            <form action="{{ route('todo_store')}}" method="post" enctype="multipart/form-data">
+              @csrf
+              <input type="text" name="todo">
+              <div class="add">
+                <select name="deadline" id="">
+                  @foreach($weekAfterArray as $key => $value)
+                  <option value="{{ $value }}">{{ $value }} ({{$key}})</option>
+                  @endforeach
+                </select>
+                <button type="submit">新規追加</button>
+              </div>
+            </form>
+            <div class="scrollTodo">
+              @foreach($todoArray as $key => $todo)
+              @if($todo !== '')
+              <div class="todo">
                 <form action="{{route('todo_delete',['todo_id' => $todo['id'] ])}}" method="post" enctype="multipart/form">
                   @csrf
                   <p>{{$todo->deadline}}〆<input type="image" src="{{ asset('\img\iconmonstr-trash-can-9-240.png') }}" class="image"></p>
                 </form>
-                    <div class="edit">
-                         <h3>{{$todo->text}}</h3>
-                         <form action="{{ route('todo_update',[ 'todo_id' => $todo['id'] ]) }}" method="post" enctype="multipart/form-data">
-                          @csrf
-                           <button class="btnEdit">完了</button>
-                         </form>
-                    </div>
-               </div>
-               @endif
-               @endforeach
-               @foreach($done_todoArray as $key => $todo)
-               @if($todo !== '')
-               <div class="todo">
+                <div class="edit">
+                  <h3>{{$todo->text}}</h3>
+                  <form action="{{ route('todo_update',[ 'todo_id' => $todo['id'] ]) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <button class="btnEdit">完了</button>
+                  </form>
+                </div>
+              </div>
+              @endif
+              @endforeach
+              @foreach($done_todoArray as $key => $todo)
+              @if($todo !== '')
+              <div class="todo">
                 <div>
                   @csrf
                   <p class="done">{{$todo->deadline}}〆
                 </div>
-                    <div class="edit">
-                         <h3 class="done">{{$todo->text}}</h3>
-                    </div>
-               </div>
-               @endif
-               @endforeach
-               </div>
+                <div class="edit">
+                  <h3 class="done">{{$todo->text}}</h3>
+                </div>
+              </div>
+              @endif
+              @endforeach
+            </div>
           </div>
         </section>
       </aside>
     </div>
     <div class="time">
-    <form name="e" action="" class="form">
-     <div class="setTimer">
+    <div class="closeBtn4"><img src="{{ asset('/img/iconmonstr-x-mark-6-240.png') }}"></div>
+      <form name="e" action="" class="form">
+        <div class="setTimer">
           <select id="study"></select>
           <span class="koron">:</span>
           <select id="rest"></select>
-     </div>
-     <div class="setSelect">
-     <select id="language">
-          <option value="HTML">HTML</option>
-          <option value="CSS">CSS</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="PHP">PHP</option>
-          <option value="Laravel">Laravel</option>
-          <option value="SQL">SQL</option>
-          <option value="React">React</option>
-          <option value="WordPress">WordPress</option>
-          <option value="GitHub">GitHub</option>
-      </select>
-      <select id="content">
-          <option value="N予備校">N予備校</option>
-          <option value="ドットインストール">ドットインストール</option>
-          <option value="POSSE課題">POSSE課題</option>
-          <option value="Udemy">Udemy</option>
-          <option value="自主制作">自主制作</option>
-          <option value="その他">その他</option>
-      </select>
-     </div>
-      <button type="button" onclick="display()" onunload="clearTimeout(tid)" class="startBtn">
-        スタート
-      </button>
-    </form>
-    <form name="f" action="{{ route('store')}}" method="post" enctype="multipart/form-data" class="form2">
-      @csrf
-          <input type="text" name="days" size="25" class="timer"/>
-          <div class="setInput">
+        </div>
+        <div class="setSelect">
+          <select id="language">
+            @foreach($languages as $language)
+            <option value="{{$language->name}}">{{$language->name}}</option>
+            @endforeach
+          </select>
+          <select id="content">
+            <option value="N予備校">N予備校</option>
+            <option value="ドットインストール">ドットインストール</option>
+            <option value="POSSE課題">POSSE課題</option>
+            <option value="Udemy">Udemy</option>
+            <option value="自主制作">自主制作</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+        <button type="button" onclick="display()" onunload="clearTimeout(tid)" class="startBtn">
+          スタート
+        </button>
+      </form>
+      <form name="f" action="{{ route('store')}}" method="post" enctype="multipart/form-data" class="form2">
+        @csrf
+        <input type="text" name="days" size="25" class="timer" />
+        <div class="setInput">
           <input type="text" name="language" class="language">
           <input type="text" name="contents" class="content">
-          <input type="hidden" name="time" class="timerHour" >
-          <input type="hidden" name="date" value="<?= date("Y-m-d")?>" />
-          </div>
-          <button type="submit" class="timeRecord">
-               記録する
-            </button>
-    </form>
-</div>
-    <p class="timer"><span id="hour"></span></span>:<span id="min"></span>:<span id="sec"></span></p>
+          <input type="hidden" name="times" class="timerHour">
+          <input type="hidden" name="date" value="<?= date("Y-m-d") ?>" />
+        </div>
+        <button type="submit" class="timeRecord">
+          記録する
+        </button>
+      </form>
+    </div>
+    <!-- <p class="timer"><span id="hour"></span></span>:<span id="min"></span>:<span id="sec"></span></p> -->
     <section class="date">
-      <form  method="post" action="{{ route('week_store')}}" enctype="multipart/form-data" class="weekForm">
+      <form method="post" action="{{ route('week_store')}}" enctype="multipart/form-data" class="weekForm">
         @csrf
-      <select name="week" id="week" onchange="submit(this.form)"></select>
+        <select name="week" id="week" onchange="submit(this.form)"></select>
       </form>
     </section>
     <section class="btn" onclick="recording()">
@@ -199,69 +184,78 @@
     <section class="modal">
       <form action="{{ route('store')}}" method="post" enctype="multipart/form-data">
         @csrf
-      <div id="loader"></div>
-      <div class="closeBtn2" onclick="close()"><img src="{{ asset('/img/iconmonstr-x-mark-6-240.png') }}"></div>
-      <div class="closeBtn"><input type="image" src="{{asset('./img/iconmonstr-x-mark-6-240.png') }}" value=""></div>
-      <div class="modal-text">
-        <div class="modal-flex">
-          <article>
-            <div class="modal-date">
-              <p>学習日<span class="error day"> ※学習日を記入してください</span></p>
-              <input type="text" id="calendarTEST" name="date" />
-            </div>
-            <div class="modal-contents">
-              <p>学習コンテンツ(複数選択不可)<span class="error contents"> ※選択してください</span></p>
-              <select name="contents" class="select con">
-                <option value="">選択してください</option>
-                <option value="N予備校">N予備校</option>
-                <option value="ドットインストール">ドットインストール</option>
-                <option value="POSSE課題">POSSE課題</option>
-                <option value="Udemy">Udemy</option>
-                <option value="自主制作">自主制作</option>
-              </select>
-            </div>
-            <div class="modal-language">
-              <p>学習言語(複数選択不可)<span class="error language"> ※選択してください</span></p>
-              <select name="language" class="select lan">
-                <option value="">選択してください</option>
-                <option value="HTML">HTML</option>
-                <option value="CSS">CSS</option>
-                <option value="JavaScript">JavaScript</option>
-                <option value="PHP">PHP</option>
-                <option value="Laravel">Laravel</option>
-                <option value="SQL">SQL</option>
-                <option value="React">React</option>
-                <option value="WordPress">WordPress</option>
-                <option value="GitHub">GitHub</option>
-              </select>
-            </div>
-          </article>
-          <aside>
-            <div class="modal-hour">
-              <p>学習時間<span class="error times"> ※数字を入力してください</span></p>
-              <input type="text" name="times" />
-            </div>
-            <div class="modal-twitter">
-              <p>Twitter用コメント</p>
-              <textarea class="comment"></textarea>
-            </div>
-            <div class="modal-share">
-              <label>
-                <input type="checkbox" class="checkbox tweet" />
-                <span class="checkbox-fontas"></span>
-                Twitterにシェアする
-              </label>
-            </div>
-          </aside>
+        <div id="loader"></div>
+        <div class="closeBtn2" onclick="close()"><img src="{{ asset('/img/iconmonstr-x-mark-6-240.png') }}"></div>
+        <div class="closeBtn"><input type="image" src="{{asset('./img/iconmonstr-x-mark-6-240.png') }}" value=""></div>
+        <div class="modal-text">
+          <div class="modal-flex">
+            <article>
+              <div class="modal-date">
+                <p>学習日<span class="error day"> ※学習日を記入してください</span></p>
+                <input type="text" id="calendarTEST" name="date" />
+              </div>
+              <div class="modal-contents">
+                <p>学習コンテンツ(複数選択不可)<span class="error contents"> ※選択してください</span></p>
+                <select name="contents" class="select con">
+                  <option value="">選択してください</option>
+                  <option value="N予備校">N予備校</option>
+                  <option value="ドットインストール">ドットインストール</option>
+                  <option value="POSSE課題">POSSE課題</option>
+                  <option value="Udemy">Udemy</option>
+                  <option value="自主制作">自主制作</option>
+                </select>
+              </div>
+              <div class="modal-language">
+                <p>学習言語(複数選択不可)<span class="error language"> ※選択してください</span></p>
+                <select name="language" class="select lan">
+                  <option value="">選択してください</option>
+                  @foreach($languages as $language)
+                  <option value="{{$language->name}}">{{$language->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </article>
+            <aside>
+              <div class="modal-hour">
+                <p>学習時間<span class="error times"> ※数字を入力してください</span></p>
+                <input type="text" name="times" />
+              </div>
+              <div class="modal-twitter">
+                <p>Twitter用コメント</p>
+                <textarea class="comment"></textarea>
+              </div>
+              <div class="modal-share">
+                <label>
+                  <input type="checkbox" class="checkbox tweet" />
+                  <span class="checkbox-fontas"></span>
+                  Twitterにシェアする
+                </label>
+              </div>
+            </aside>
+          </div>
+          <button class="btnRecord" type="button">記録・投稿</button>
         </div>
-        <button class="btnRecord" type="button">記録・投稿</button>
-      </div>
-      <div class="end">
-        <p class="endText">AWESOME!</p>
-        <i class="fas fa-check-circle"></i>
-        <p>記録・投稿<br />完了でござる</p>
-      </div>
+        <div class="end">
+          <p class="endText">AWESOME!</p>
+          <i class="fas fa-check-circle"></i>
+          <p>記録・投稿<br />完了でござる</p>
+        </div>
       </form>
+    </section>
+    <section class="modal set">
+      <div class="closeBtn3"><img src="{{ asset('/img/iconmonstr-x-mark-6-240.png') }}"></div>
+      <h2>カスタマイズ</h2>
+      <p>背景色変更</p>
+      <input type="color" id="color" name="color">
+      <input type="submit" class="colorBtn" value="色変更"></input>
+      <form method="post" action="{{ route('language_store')}}" enctype="multipart/form-data">
+        @csrf
+        <p>学習言語追加</p>
+        <dd>名前</dd><input type="text" name="languageName">
+        <dd>説明</dd><input type="text" name="languageText">
+        <input type="submit" value="新規追加">
+      </form>
+
     </section>
   </div>
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.0.min.js"></script>
@@ -269,25 +263,23 @@
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script >
-
-
-function time(value) {
-  @foreach($weeks as $key => $week)
-    let selection{{$key}} = `<option value="{{$key}}">{{$week}}</option>`;
-    if({{$key}} == {{$id}}){
+  <script>
+    function time(value) {
+      @foreach($weeks as $key => $week)
+      let selection{{$key}} = `<option value="{{$key}}">{{$week}}</option>`;
+      if ({{$key}} == {{$id}}){
         selection{{$key}} = `<option value="{{$key}}" selected>{{$week}}</option>`;
+      }
+      document.getElementById(`${value}`).insertAdjacentHTML("beforeend", selection{{$key}});
+      @endforeach
     }
-    document.getElementById(`${value}`).insertAdjacentHTML("beforeend", selection{{$key}});
-  @endforeach
-}
-time("week");
+    time("week");
 
 
 
-         flatpickr.localize(flatpickr.l10ns.ja);
+    flatpickr.localize(flatpickr.l10ns.ja);
     flatpickr("#calendarTEST");
-       var ctx = document.getElementById("myBarChart");
+    var ctx = document.getElementById("myBarChart");
     var myBarChart = new Chart(ctx, {
       type: "bar",
       data: {
@@ -341,15 +333,14 @@ time("week");
     });
 
     @foreach($languageWeekRatioArray as $language => $ratio)
-        const language{{$language}} = document.querySelector(".{{$language}}");
-        language{{$language}}.style.width = {{$ratio}}  + "%";
+    const language{{$language}} = document.querySelector(".{{$language}}");
+    language{{$language}}.style.width = {{$ratio}} + "%";
     @endforeach
 
     @foreach($languageWeekArray as $language => $languageSum)
-        const minute{{$language}} = document.querySelector("#{{$language}}");
-        minute{{$language}}.innerHTML = {{$languageSum}} * 60  + "分";
+    const minute{{$language}} = document.querySelector("#{{$language}}");
+    minute{{$language}}.innerHTML = {{$languageSum}}* 60 + "分";
     @endforeach
-
   </script>
   <script src="{{ asset('/js/main.js') }}"></script>
 </body>

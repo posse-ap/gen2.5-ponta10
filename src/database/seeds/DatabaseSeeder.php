@@ -1,5 +1,6 @@
 <?php
 
+use App\Country;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,8 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(StudyTableSeeder::class);
         // $this->call(TodoTableSeeder::class);
-        $this->call(LanguageTableSeeder::class);
+        // $this->call(LanguageTableSeeder::class);
+        $this->call(CountryTableSeeder::class);
+        $this->call(PokemonTableSeeder::class);
     }
 }

@@ -130,7 +130,7 @@
           <div class="setInput">
           <input type="text" name="language" class="language">
           <input type="text" name="contents" class="content">
-          <input type="hidden" name="time" class="timerHour" >
+          <input type="hidden" name="times" class="timerHour" >
           <input type="hidden" name="date" value="<?= date("Y-m-d")?>" />
           </div>
           <button type="submit" class="timeRecord">
@@ -244,14 +244,9 @@ time("month");
         pieHole: 0.4,
         backgroundColor: "transparent",
         colors: [
-          "#FF2400",
-          "#ff4500",
-          "#ff6347",
-          "#ff8c00",
-          "#ffa500",
-          "#f1a478",
-          "#ffd27d",
-          "#FFF380",
+          @foreach($languages as $language)
+          "{{$language->color}}",
+          @endforeach
         ],
         legend: "none",
         fontSize: 15,
