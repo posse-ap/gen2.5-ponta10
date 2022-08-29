@@ -1306,4 +1306,130 @@ header .now {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.boxMain {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+}
+.boxMain .handle {
+  width: 20%;
+}
+.boxMain .handle h2 {
+  display: inline-block;
+  color: #fff;
+  background-color: rgb(127, 217, 255);
+  padding: 8px 12px;
+}
+.boxMain .handle-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.boxMain .handle-body_container {
+  background-color: rgba(127, 217, 255, 0.301);
+  width: 100%;
+  height: 10vh;
+}
+.boxMain .box {
+  width: 60%;
+}
+.boxMain .box h2 {
+  color: #fff;
+  background-color: rgb(127, 217, 255);
+  padding: 8px 12px;
+  text-align: center;
+}
+.boxMain .box-body {
+  width: 100%;
+  height: 90%;
+  background-color: rgba(15, 231, 159, 0.24);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.boxMain .box-body .boxPokemon {
+  width: 10%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.boxMain .featurePokemon {
+  display: flex;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+}
+.boxMain .featurePokemon-body {
+  width: 100%;
+  height: 60%;
+  background-color: rgba(127, 217, 255, 0.301);
+  position: relative;
+}
+.boxMain .featurePokemon-body .featured {
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(10px 16px 6px rgba(0, 0, 0, 0.319));
+}
+
+.pokemonMain {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pokemonMain .pokemon {
+  padding: 12px;
+  width: 45%;
+  height: 200px;
+  background-color: rgba(63, 227, 98, 0.229);
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  position: relative;
+}
+.pokemonMain .pokemon .hand {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.pokemonMain .pokemon .hand img {
+  width: 35%;
+}
+.pokemonMain .pokemon:hover {
+  outline: 12px solid rgba(63, 227, 99, 0.711);
+}
+.pokemonMain .pokemon .level span {
+  font-size: 20px;
+}
+.pokemonMain .pokemon .ballIcon {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 10%;
+  opacity: 0.7;
+}
+
+.line {
+  width: 200px;
+  height: 10px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  margin: 12px 0;
+}
+.line .exp {
+  background-color: rgb(127, 202, 255);
+  height: 100%;
 }/*# sourceMappingURL=style.css.map */

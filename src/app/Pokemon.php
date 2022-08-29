@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pokemon extends Model
 {
-    //
+    //   
+     public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
+    protected $table = "pokemons";
 }

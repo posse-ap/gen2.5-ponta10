@@ -15,511 +15,511 @@ class PokemonTableSeeder extends Seeder
         $params = [
             [
                 'country_id' => 1,
-                'pokemon_id' =>1,
+                'id' => 1,
                 'status' => 1,
-                'name'=> 'フシギダネ',
-                'type' => 'くさ' 
-            ],
-            [
-                'country_id' => 1,
-                'pokemon_id' =>2,
-                'name'=> 'フシギソウ',
-                'status' => 2,
+                'name' => 'フシギダネ',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 1,
-                'pokemon_id' =>3,
-                'status' => 3,
-                'name'=> 'フシギバナ',
-                'type' => 'くさ'
-            ],            
-            [
-                'country_id' => 1,
-                'pokemon_id' =>4,
-                'status' => 1,
-                'name'=> 'ヒトカゲ',
-                'type' => 'ほのお'
-            ],
-            [
-                'country_id' => 1,
-                'pokemon_id' =>5,
+                'id' => 2,
+                'name' => 'フシギソウ',
                 'status' => 2,
-                'name'=> 'リザード',
-                'type' => 'ほのお'
+                'type' => 'くさ'
             ],
             [
                 'country_id' => 1,
-                'pokemon_id' =>6,
+                'id' => 3,
                 'status' => 3,
-                'name'=> 'リザードン',
+                'name' => 'フシギバナ',
+                'type' => 'くさ'
+            ],
+            [
+                'country_id' => 1,
+                'id' => 4,
+                'status' => 1,
+                'name' => 'ヒトカゲ',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 1,
-                'pokemon_id' =>7,
+                'id' => 5,
+                'status' => 2,
+                'name' => 'リザード',
+                'type' => 'ほのお'
+            ],
+            [
+                'country_id' => 1,
+                'id' => 6,
+                'status' => 3,
+                'name' => 'リザードン',
+                'type' => 'ほのお'
+            ],
+            [
+                'country_id' => 1,
+                'id' => 7,
                 'status' => 1,
-                'name'=> 'ゼニガメ',
+                'name' => 'ゼニガメ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 1,
-                'pokemon_id' =>8,
+                'id' => 8,
                 'status' => 2,
-                'name'=> 'カメール',
+                'name' => 'カメール',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 1,
-                'pokemon_id' =>9,
+                'id' => 9,
                 'status' => 3,
-                'name'=> 'カメックス',
+                'name' => 'カメックス',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 2,
-                'pokemon_id' =>152,
+                'id' => 152,
                 'status' => 1,
-                'name'=> 'チコリータ',
+                'name' => 'チコリータ',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 2,
-                'pokemon_id' =>153,
+                'id' => 153,
                 'status' => 2,
-                'name'=> 'ベイリーフ',
+                'name' => 'ベイリーフ',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 2,
-                'pokemon_id' =>154,
+                'id' => 154,
                 'status' => 3,
-                'name'=> 'メガニウム',
+                'name' => 'メガニウム',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 2,
-                'pokemon_id' =>155,
+                'id' => 155,
                 'status' => 1,
-                'name'=> 'ヒノアラシ',
+                'name' => 'ヒノアラシ',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 2,
-                'pokemon_id' => 156,
+                'id' => 156,
                 'status' => 2,
-                'name'=> 'マグマラシ',
+                'name' => 'マグマラシ',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 2,
-                'pokemon_id' =>157,
+                'id' => 157,
                 'status' => 3,
-                'name'=> 'バクフーン',
+                'name' => 'バクフーン',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 2,
-                'pokemon_id' =>158,
+                'id' => 158,
                 'status' => 1,
-                'name'=> 'ワニノコ',
+                'name' => 'ワニノコ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 2,
-                'pokemon_id' =>159,
+                'id' => 159,
                 'status' => 2,
-                'name'=> 'アリゲイツ',
+                'name' => 'アリゲイツ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 2,
-                'pokemon_id' =>160,
+                'id' => 160,
                 'status' => 3,
-                'name'=> 'オーダイル',
+                'name' => 'オーダイル',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 3,
-                'pokemon_id' =>252,
+                'id' => 252,
                 'status' => 1,
-                'name'=> 'キモリ',
+                'name' => 'キモリ',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 3,
-                'pokemon_id' =>253,
+                'id' => 253,
                 'status' => 2,
-                'name'=> 'ジュプトル',
+                'name' => 'ジュプトル',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 3,
-                'pokemon_id' =>254,
+                'id' => 254,
                 'status' => 3,
-                'name'=> 'ジュカイン',
+                'name' => 'ジュカイン',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 3,
-                'pokemon_id' =>255,
+                'id' => 255,
                 'status' => 1,
-                'name'=> 'アチャモ',
+                'name' => 'アチャモ',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 3,
-                'pokemon_id' =>256,
+                'id' => 256,
                 'status' => 2,
-                'name'=> 'ワカシャモ',
+                'name' => 'ワカシャモ',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 3,
-                'pokemon_id' =>257,
+                'id' => 257,
                 'status' => 3,
-                'name'=> 'バシャーモ',
+                'name' => 'バシャーモ',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 3,
-                'pokemon_id' =>258,
+                'id' => 258,
                 'status' => 1,
-                'name'=> 'ミズゴロウ',
+                'name' => 'ミズゴロウ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 3,
-                'pokemon_id' =>259,
+                'id' => 259,
                 'status' => 2,
-                'name'=> 'ヌマクロー',
+                'name' => 'ヌマクロー',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 3,
-                'pokemon_id' =>260,
+                'id' => 260,
                 'status' => 3,
-                'name'=> 'ラグラージ',
+                'name' => 'ラグラージ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 4,
-                'pokemon_id' =>387,
+                'id' => 387,
                 'status' => 1,
-                'name'=> 'ナエトル',
+                'name' => 'ナエトル',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 4,
-                'pokemon_id' =>388,
+                'id' => 388,
                 'status' => 2,
-                'name'=> 'ハヤシガメ',
+                'name' => 'ハヤシガメ',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 4,
-                'pokemon_id' =>389,
+                'id' => 389,
                 'status' => 3,
-                'name'=> 'ドダイトス',
+                'name' => 'ドダイトス',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 4,
-                'pokemon_id' =>390,
+                'id' => 390,
                 'status' => 1,
-                'name'=> 'ヒコザル',
+                'name' => 'ヒコザル',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 4,
-                'pokemon_id' =>391,
+                'id' => 391,
                 'status' => 2,
-                'name'=> 'モウカザル',
+                'name' => 'モウカザル',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 4,
-                'pokemon_id' =>392,
+                'id' => 392,
                 'status' => 3,
-                'name'=> 'ゴウカザル',
+                'name' => 'ゴウカザル',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 4,
-                'pokemon_id' =>393,
+                'id' => 393,
                 'status' => 1,
-                'name'=> 'ポッチャマ',
+                'name' => 'ポッチャマ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 4,
-                'pokemon_id' =>394,
+                'id' => 394,
                 'status' => 2,
-                'name'=> 'ポッタイシ',
+                'name' => 'ポッタイシ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 4,
-                'pokemon_id' =>395,
+                'id' => 395,
                 'status' => 3,
-                'name'=> 'エンペルト',
+                'name' => 'エンペルト',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 5,
-                'pokemon_id' =>495,
+                'id' => 495,
                 'status' => 1,
-                'name'=> 'ツタージャ',
+                'name' => 'ツタージャ',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 5,
-                'pokemon_id' =>496,
+                'id' => 496,
                 'status' => 2,
-                'name'=> 'ジャノビー',
+                'name' => 'ジャノビー',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 5,
-                'pokemon_id' =>497,
+                'id' => 497,
                 'status' => 3,
-                'name'=> 'ジャローダ',
+                'name' => 'ジャローダ',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 5,
-                'pokemon_id' =>498,
+                'id' => 498,
                 'status' => 1,
-                'name'=> 'ポカブ',
+                'name' => 'ポカブ',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 5,
-                'pokemon_id' =>499,
+                'id' => 499,
                 'status' => 2,
-                'name'=> 'チャオブー',
+                'name' => 'チャオブー',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 5,
-                'pokemon_id' =>500,
+                'id' => 500,
                 'status' => 3,
-                'name'=> 'エンブオー',
+                'name' => 'エンブオー',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 5,
-                'pokemon_id' =>501,
+                'id' => 501,
                 'status' => 1,
-                'name'=> 'ミジュマル',
+                'name' => 'ミジュマル',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 5,
-                'pokemon_id' =>502,
+                'id' => 502,
                 'status' => 2,
-                'name'=> 'フタチマル',
+                'name' => 'フタチマル',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 5,
-                'pokemon_id' =>503,
+                'id' => 503,
                 'status' => 3,
-                'name'=> 'ダイケンキ',
+                'name' => 'ダイケンキ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 6,
-                'pokemon_id' =>650,
+                'id' => 650,
                 'status' => 1,
-                'name'=> 'ハリマロン',
+                'name' => 'ハリマロン',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 6,
-                'pokemon_id' =>651,
+                'id' => 651,
                 'status' => 2,
-                'name'=> 'ハリボーグ',
+                'name' => 'ハリボーグ',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 6,
-                'pokemon_id' =>652,
+                'id' => 652,
                 'status' => 3,
-                'name'=> 'ブリガロン',
+                'name' => 'ブリガロン',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 6,
-                'pokemon_id' =>653,
+                'id' => 653,
                 'status' => 1,
-                'name'=> 'フォッコ',
+                'name' => 'フォッコ',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 6,
-                'pokemon_id' =>654,
+                'id' => 654,
                 'status' => 2,
-                'name'=> 'テールナー',
+                'name' => 'テールナー',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 6,
-                'pokemon_id' =>655,
+                'id' => 655,
                 'status' => 3,
-                'name'=> 'マフォクシー',
+                'name' => 'マフォクシー',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 6,
-                'pokemon_id' =>656,
+                'id' => 656,
                 'status' => 1,
-                'name'=> 'ケロマツ',
+                'name' => 'ケロマツ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 6,
-                'pokemon_id' =>657,
+                'id' => 657,
                 'status' => 2,
-                'name'=> 'ゲコガシラ',
+                'name' => 'ゲコガシラ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 6,
-                'pokemon_id' =>658,
+                'id' => 658,
                 'status' => 3,
-                'name'=> 'ゲッコウガ',
+                'name' => 'ゲッコウガ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 7,
-                'pokemon_id' =>722,
+                'id' => 722,
                 'status' => 1,
-                'name'=> 'モクロー',
+                'name' => 'モクロー',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 7,
-                'pokemon_id' =>723,
+                'id' => 723,
                 'status' => 2,
-                'name'=> 'フクスロー',
+                'name' => 'フクスロー',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 7,
-                'pokemon_id' =>724,
+                'id' => 724,
                 'status' => 3,
-                'name'=> 'ジュナイパー',
+                'name' => 'ジュナイパー',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 7,
-                'pokemon_id' =>725,
+                'id' => 725,
                 'status' => 1,
-                'name'=> 'ニャビー',
+                'name' => 'ニャビー',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 7,
-                'pokemon_id' =>726,
+                'id' => 726,
                 'status' => 2,
-                'name'=> 'ニャヒート',
+                'name' => 'ニャヒート',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 7,
-                'pokemon_id' =>727,
+                'id' => 727,
                 'status' => 3,
-                'name'=> 'ガオガエン',
+                'name' => 'ガオガエン',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 7,
-                'pokemon_id' =>728,
+                'id' => 728,
                 'status' => 1,
-                'name'=> 'アシマリ',
+                'name' => 'アシマリ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 7,
-                'pokemon_id' =>729,
+                'id' => 729,
                 'status' => 2,
-                'name'=> 'オシャマリ',
+                'name' => 'オシャマリ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 7,
-                'pokemon_id' =>730,
+                'id' => 730,
                 'status' => 3,
-                'name'=> 'アシレーヌ',
+                'name' => 'アシレーヌ',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 8,
-                'pokemon_id' =>810,
+                'id' => 810,
                 'status' => 1,
-                'name'=> 'サルノリ',
+                'name' => 'サルノリ',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 8,
-                'pokemon_id' =>811,
+                'id' => 811,
                 'status' => 2,
-                'name'=> 'バチンキー',
+                'name' => 'バチンキー',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 8,
-                'pokemon_id' =>812,
+                'id' => 812,
                 'status' => 3,
-                'name'=> 'ゴリランダー',
+                'name' => 'ゴリランダー',
                 'type' => 'くさ'
             ],
             [
                 'country_id' => 8,
-                'pokemon_id' =>813,
+                'id' => 813,
                 'status' => 1,
-                'name'=> 'ヒバ二ー',
+                'name' => 'ヒバ二ー',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 8,
-                'pokemon_id' =>814,
+                'id' => 814,
                 'status' => 2,
-                'name'=> 'ラビフット',
+                'name' => 'ラビフット',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 8,
-                'pokemon_id' =>815,
+                'id' => 815,
                 'status' => 3,
-                'name'=> 'エースバーン',
+                'name' => 'エースバーン',
                 'type' => 'ほのお'
             ],
             [
                 'country_id' => 8,
-                'pokemon_id' =>816,
+                'id' => 816,
                 'status' => 1,
-                'name'=> 'メッソン',
+                'name' => 'メッソン',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 8,
-                'pokemon_id' =>817,
+                'id' => 817,
                 'status' => 2,
-                'name'=> 'ジメレオン',
+                'name' => 'ジメレオン',
                 'type' => 'みず'
             ],
             [
                 'country_id' => 8,
-                'pokemon_id' =>818,
+                'id' => 818,
                 'status' => 3,
-                'name'=> 'インテレオン',
+                'name' => 'インテレオン',
                 'type' => 'みず'
             ],
         ];
         foreach ($params as $param) {
-            DB::table('pokemon')->insert($param);
+            DB::table('pokemons')->insert($param);
         }
     }
 }
