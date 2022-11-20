@@ -1,16 +1,130 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>kuizy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.google.com/">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC:700" >
-  </head>
-  <body>
-  <script src="sample.js"></script>  
-  <script src="jquery-3.6.0.min.js"></script>
-  </body>
-  </html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="header-body">
+            <div class="header-body_logo">
+                <img src="./webapp改/img/POSSElogo.jpg" alt="">
+                <h3>4th week</h3>
+            </div>
+            <button class="header-body_button">記録・投稿</button>
+        </div>
+    </header>
+    <main>
+        <div class="main-body">
+            <div class="main-body_hour">
+                <div class="main-body_hour_number">
+                    <div class="main-body_hour_number_today">
+                        <h3>Today</h3>
+                        <h2>3</h2>
+                        <h4>hour</h4>
+                    </div>
+                    <div class="main-body_hour_number_month">
+                        <h3>Month</h3>
+                        <h2>120</h2>
+                        <h4>hour</h4>
+                    </div>
+                    <div class="main-body_hour_number_total">
+                        <h3>Total</h3>
+                        <h2>1348</h2>
+                        <h4>hour</h4>
+                    </div>
+                </div>
+                <div class="main-body_hour_bar"></div>
+            </div>
+            <div class="main-body_donut">
+                <div class="mai-body_donut_language">
+                    <h3>学習言語</h3>
+                </div>
+                <div class="mai-body_donut_contents">
+                    <h3>学習コンテンツ</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="modal">
+        <div class="modal-close"><img src="./webapp改/img/iconmonstr-x-mark-6-240.png" alt=""></div>
+        <div class="modal-body">
+            <div class="modal-body_learning">
+                <div class="modal-body_learning_date">
+                    <h4>学習日</h4>
+                    <input type="date">
+                </div>
+                <div class="modal-body_learning_contents">
+                    <h4>学習コンテンツ(複数選択可)</h4>
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">N予備校</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">ドットインストール</span>
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">POSSE課題</span>
+                    </label>
+                </div>
+                <div class="modal-body_learning_language">
+                    <h4>学習言語(複数選択可)</h4>
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">HTML</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">CSS</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">JavaScript</span>
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">PHP</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">Laravel</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">SQL</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">SHELL</span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-body_comment">
+                <div class="modal-body_learning_hour">
+                    <h4>学習時間</h4>
+                    <input type="number">
+                </div>
+                <div class="modal-body_learning_twitter">
+                    <h4>Twitterコメント</h4>
+                    <textarea></textarea>
+                    <label>
+                        <input type="checkbox" class="modal-body_learning_checkbox" />
+                        <span class="modal-body_learning_checkbox_span">Twitterにシェアする</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-button"><button>記録・投稿</button></div>
+    </div>
+    <div class="filter"></div>
+    <script src="./script/script.js"></script>
+</body>
+</html>
