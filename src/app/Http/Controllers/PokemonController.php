@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Country;
 use App\Pokemon;
+use App\Study;
 use App\User;
 use App\Pokemon_user;
 use App\Hand;
@@ -20,6 +21,11 @@ class PokemonController extends Controller
 
     public function index()
     {
+        return view('pokemon.index');
+    }
+
+    public function country()
+    {
         $countries = Country::get();
         return view('pokemon.country', compact('countries'));
     }
@@ -30,17 +36,17 @@ class PokemonController extends Controller
         return view('pokemon.select', compact('pokemons'));
     }
 
-    public function hand()
+    public function hand($status)
     {
         $user = Auth::user();
         $handPokemons = Hand::where('user_id', $user['id'])->get();
         foreach ($handPokemons as $handPokemon):
             $pokemons[] = Pokemon::where('id',$handPokemon->pokemon_id)->get();
         endforeach;
-        return view('pokemon.hand',compact('handPokemons','pokemons'));
+        return view('pokemon.hand',compact('handPokemons','pokemons','status'));
     }
 
-    public function box($id)
+    public function box()
     {
         $user = Auth::user();
         // $boxPokemons = User::where('id', $user['id'])->first();
@@ -59,8 +65,16 @@ class PokemonController extends Controller
 
     public function training($id)
     {
-        $pokemon = Pokemon::where('id', $id)->get();
-        return view('pokemon.training', compact('pokemon'));
+        $training = Hand::where('id', $id)->first();
+        $pokemon_id = $training->pokemon_id;
+        $pokemon = Pokemon::where('id', $pokemon_id)->first();
+
+        $user = Auth::user();
+        $count  = Pokemon_user::where('user_id', $user['id'])->sum('hour');
+        $sum = Study::where('user_id',$user['id'])->sum('hour');
+        $exp = floor($sum - $count);
+
+        return view('pokemon.training', compact('pokemon','exp'));
     }
 
     public function pokemon_store(Request $request)
@@ -97,10 +111,11 @@ class PokemonController extends Controller
                         'pokemon_id' => 0,
                     ]);
                 }
-        Hand::where('user_id', $user['id'])->where('id',$key)->update([
+        //変更可能性あり
+        Hand::where('user_id', $user['id'])->where('id',$key+1)->update([
             'pokemon_id' => $hand,
         ]);
         endforeach;
-        return redirect()->route('pokemon.hand');
+        return redirect()->route('pokemon.hand',['status' => 2]);
     }
 }

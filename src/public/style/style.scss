@@ -4,10 +4,10 @@
 //   overflow: hidden;
 // }
 
-.main{
-  width: 95vw;
-  margin: 0 auto;  
-  position: relative;
+.main {
+    width: 95vw;
+    margin: 0 auto;
+    position: relative;
 }
 
 @import "./parts/barGraph";
@@ -20,574 +20,654 @@
 @import "./parts/add";
 
 @media (max-width: 599px) {
-  @import "breakpoints/_600Down.scss";
+    @import "breakpoints/_600Down.scss";
 }
 
 @media (min-width: 900px) and (max-width: 1199px) {
-  @import "breakpoints/_900Up.scss";
+    @import "breakpoints/_900Up.scss";
 }
 
 @media (min-width: 1200px) {
-  @import "breakpoints/_1200Up.scss";
+    @import "breakpoints/_1200Up.scss";
 }
 
-.time{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 50%;
-  height: 50%;
-  padding: 40px;
-  border-radius: 36px;
-  background-image: url(../img/pengin.png);
-  background-size: cover;
-  z-index: 9;
-  display: none;
-}
-
-.form{
-  width: 100%;
-  height: 100%;
-}
-
-
-.form2{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.timer, .language{
-  font-size: 60px;
-  text-align: center;
-  width: 50%;
-  height: 15%;
-  display: none;
-  font-weight: 800;
-  margin: 100px auto;
-}
-
-
-
-.language , .content{
-  font-size: 16px;
-  height: 30%;
-  margin: 20px auto;
-  text-align: center;
-}
-
-.timeRecord{
-  display: none;
-}
-
-.setTimer{
-  font-size: 60px;
-  text-align: center;
-  width: 100%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.setTimer select{
-  width: 30%;
-  height: 25%;
-  text-align: center;
-  font-size: 32px;
-  font-weight: 800;
-  border-radius: 36px;
-}
-
-#language , #content{
-  font-size: 16px;
-  text-align: center;
-  width: 30%;
-  display: block;
-  margin: 12px auto;
-  height: 15%;
-  font-weight: 800;
-  background-color: orange;
-  margin-top: 100px;
-}
-
-.startBtn{
-  cursor: pointer;
-  background-color: orange;
-  width: 50%;
-  display: block;
-  margin: 0 auto;
-  padding: 12px 20px;
-  border: none;
-}
-
-.timeRecord{
-  cursor: pointer;
-  background-color: orange;
-  width: 50%;
-  padding: 12px 20px;
-  border: none;
-}
-
-.koron{
-  color: #fff;
-  /* font-size: 28px; */
-}
-
-.pengin{
-  width: 15%;
-  object-fit: cover;
-  cursor: pointer;
-}
-
-.setInput{
-  display: flex;
-  justify-content: center;
-}
-
-.setSelect{
-  display: flex;
-  justify-content: center;
-}
-
-.languageSubmit{
-  display: block;
-  width: 33%;
-  background-color: rgba(255, 166, 0, 0.198);
-  margin: 8px 0;
-  padding: 4px 12px;
-  border: none;
-  border-radius: 20px;
-  font-size: 14px;
-  text-decoration: none;
-  color: #000;
-  text-align: center;
-}
-
-.border{
-  background-color: rgba(255, 128, 0, 0.652);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.325);
-  border-radius: 12px;
-  // width: 50%;
-  display: inline-block;
-  height: 10px;
-}
-
-.circle-contents{
-    overflow-y: scroll;
-    overflow-x: hidden;
-  & input{
-    border: solid 1px rgba(0, 0, 0, 0.21);
-    width: 100%;
-    margin: 12px auto;
-    padding: 4px;
-  }
-  & .add{
-    display: flex;
-    justify-content: space-between;
-    & button{
-      background-color: rgba(255,123,0,0.7) ;
-      color: #fff;
-      padding: 4px 20px;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.325);
-      border-radius: 8px;
-    }
-    & select{
-      border: solid 1px rgba(0, 0, 0, 0.21);
-      padding: 4px 20px;
-    }
-    & a{
-      text-decoration: none;
-      color: #fff;
-    }
-  }
-  & .todo{
-    margin: 20px auto;
-    border-bottom: solid 1px rgba(0, 0, 0, 0.21);
-    padding: 12px 0;
-    & .image{
-      width: 24px;
-      height: 24px;
-      margin: 0 4px;
-      object-fit: cover;
-      border: none;
-    }
-    & a{
-      text-decoration: none;
-      color: #fff;
-    }
-    & p{
-      font-weight: 400;
-      font-size: 12px;
-      display: inline;
-    }
-    & .edit{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      & .btnEdit{
-        background-color:rgba(255,123,0,0.7) ;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.325);
-        padding: 4px 12px;
-        border-radius: 4px;
-        color: #fff;
-      }
-    }
-  }
-}
-
-.language-container{
-  display: flex;
-  align-items: center;
-  & .image{
-    width: 24px;
-    height: 24px;
-    margin: 0 4px;
-    object-fit: cover;
-    border: none;
-    padding:4px;
-  }
-}
-
-
-.circle-language span{
-  white-space: nowrap;
-}
-
-.circle-language{
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.bar{
-  position: relative;
-}
-
-#myBarChart{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.done{
-  color: #ccc;
-}
-
-header{
-  & .link{
-    background-color:rgba(255, 123, 0, 0.331) ;
-    color: #fff;
-    padding: 4px 40px;
-    border: solid  0.5px orange;
-  }
-  & .now{
-    background-color:rgba(255,123,0,0.7) ;
-  }
-}
-
-.before {
-  position: fixed;
-  top: 50%;
-  left: 1%;
-  transform: translateY(-50%);
-  & img {
-    width: 50px;
-    height: 50px;
-  }
-}
-.after {
-  position: fixed;
-  top: 50%;
-  right: 1%;
-  transform: translateY(-50%);
-  & img {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-.setting{
-  width: 3%;
-}
-
-.language-detail{
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
-  &_text{
+.time {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 50%;
-  }
-  &_rank{
-    // width: 50%;
-    & .order{
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      & img{
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-      }
-      & span{
-        font-size: 28px;
-        font-weight: 500;
-      }
-    }
-  }
+    height: 50%;
+    padding: 40px;
+    border-radius: 36px;
+    background-image: url(../img/pengin.png);
+    background-size: cover;
+    z-index: 9;
+    display: none;
 }
 
-
-.closeBtn4 {
-  position: absolute;
-  top: 2%;
-  right: 3%;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  & img{
+.form {
     width: 100%;
     height: 100%;
-  }
 }
 
-.mainCountry{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 100vh;
-  gap: 30px;
-  overflow: hidden;
-  & .country{
-       width: 30%;
-       padding: 100px;
-       text-align: center;
-       font-size: 32px;
-       font-weight: 700;
-       color: white;
-       text-shadow: 2px 2px 4px #000;
-       &:hover{
-            opacity: .8;
-            cursor: pointer;
-            transform: scale(1.05);
-       }
-  }
+.form2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
-
-.container {
-  padding: 40px;
-  margin: 0 auto;
-  &  #pokedex  {
-    padding-inline-start: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 20px;
-    & .monster{
-         width: 80%;
-         margin: 0 auto;
-         text-align: center;
-         & .monsterBall{
-              width: 80%;
-              &:hover{
-                   transform: scale(1.2);
-              }
-         }
-    }
- }
+.timer,
+.language {
+    font-size: 60px;
+    text-align: center;
+    width: 50%;
+    height: 15%;
+    display: none;
+    font-weight: 800;
+    margin: 100px auto;
 }
 
+.language,
+.content {
+    font-size: 16px;
+    height: 30%;
+    margin: 20px auto;
+    text-align: center;
+}
 
-.select{
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background-color: #ccc;
-    margin: 0 auto;
+.timeRecord {
+    display: none;
+}
+
+.setTimer {
+    font-size: 60px;
+    text-align: center;
+    width: 100%;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    transform: none;
-    & .displayPokemon{
-         list-style: none;
-    }
-    & .card {
-         list-style: none;
-         /* padding: 40px;
-         background-color: #ffffff ;
-         color: #000000 ;
-         display: grid;
-         border-radius: 50%;
-         position: relative; */
-         &-image{
-                height: 180px;
-                margin: 0 auto;
-         }
-         & h2{
-              text-align: center;
-         }
-         & p{
-              text-align: center;
-         }
-      }
 }
-.pokeform{
+
+.setTimer select {
+    width: 30%;
+    height: 25%;
     text-align: center;
-    & .btn{
-         padding: 10px 20px;
-         background-color: orange;
-         cursor: pointer;
-         border: none;
+    font-size: 32px;
+    font-weight: 800;
+    border-radius: 36px;
+}
+
+#language,
+#content {
+    font-size: 16px;
+    text-align: center;
+    width: 30%;
+    display: block;
+    margin: 12px auto;
+    height: 15%;
+    font-weight: 800;
+    background-color: orange;
+    margin-top: 100px;
+}
+
+.startBtn {
+    cursor: pointer;
+    background-color: orange;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    padding: 12px 20px;
+    border: none;
+}
+
+.timeRecord {
+    cursor: pointer;
+    background-color: orange;
+    width: 50%;
+    padding: 12px 20px;
+    border: none;
+}
+
+.koron {
+    color: #fff;
+    /* font-size: 28px; */
+}
+
+.pengin {
+    width: 15%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.setInput {
+    display: flex;
+    justify-content: center;
+}
+
+.setSelect {
+    display: flex;
+    justify-content: center;
+}
+
+.languageSubmit {
+    display: block;
+    width: 33%;
+    background-color: rgba(255, 166, 0, 0.198);
+    margin: 8px 0;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+}
+
+.border {
+    background-color: rgba(255, 128, 0, 0.652);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.325);
+    border-radius: 12px;
+    // width: 50%;
+    display: inline-block;
+    height: 10px;
+}
+
+.circle-contents {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    & input {
+        border: solid 1px rgba(0, 0, 0, 0.21);
+        width: 100%;
+        margin: 12px auto;
+        padding: 4px;
+    }
+    & .add {
+        display: flex;
+        justify-content: space-between;
+        & button {
+            background-color: rgba(255, 123, 0, 0.7);
+            color: #fff;
+            padding: 4px 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.325);
+            border-radius: 8px;
+        }
+        & select {
+            border: solid 1px rgba(0, 0, 0, 0.21);
+            padding: 4px 20px;
+        }
+        & a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+    & .todo {
+        margin: 20px auto;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.21);
+        padding: 12px 0;
+        & .image {
+            width: 24px;
+            height: 24px;
+            margin: 0 4px;
+            object-fit: cover;
+            border: none;
+        }
+        & a {
+            text-decoration: none;
+            color: #fff;
+        }
+        & p {
+            font-weight: 400;
+            font-size: 12px;
+            display: inline;
+        }
+        & .edit {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            & .btnEdit {
+                background-color: rgba(255, 123, 0, 0.7);
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.325);
+                padding: 4px 12px;
+                border-radius: 4px;
+                color: #fff;
+            }
+        }
     }
 }
 
-.monsterSelect{
-  transform: translateY(50%) scale(1.2);
-  transition: all 1.5s;
+.language-container {
+    display: flex;
+    align-items: center;
+    & .image {
+        width: 24px;
+        height: 24px;
+        margin: 0 4px;
+        object-fit: cover;
+        border: none;
+        padding: 4px;
+    }
 }
 
-.yesNo{
-  display: none;
+.circle-language span {
+    white-space: nowrap;
 }
 
-.training{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.circle-language {
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-.boxMain{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  width: 100vw;
-  height: 80vh;
-  & .handle{
-       width: 20%;
-       & h2{
+.bar {
+    position: relative;
+}
+
+#myBarChart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.done {
+    color: #ccc;
+}
+
+header {
+    & .link {
+        background-color: rgba(255, 123, 0, 0.331);
+        color: #fff;
+        padding: 4px 40px;
+        border: solid 0.5px orange;
+    }
+    & .now {
+        background-color: rgba(255, 123, 0, 0.7);
+    }
+}
+
+.before {
+    position: fixed;
+    top: 50%;
+    left: 1%;
+    transform: translateY(-50%);
+    & img {
+        width: 50px;
+        height: 50px;
+    }
+}
+.after {
+    position: fixed;
+    top: 50%;
+    right: 1%;
+    transform: translateY(-50%);
+    & img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.setting {
+    width: 3%;
+}
+
+.language-detail {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    &_text {
+        width: 50%;
+    }
+    &_rank {
+        // width: 50%;
+        & .order {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            & img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+            }
+            & span {
+                font-size: 28px;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.closeBtn4 {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.mainCountry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    gap: 30px;
+    overflow: hidden;
+    & .country {
+        width: 30%;
+        padding: 100px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: white;
+        text-shadow: 2px 2px 4px #000;
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+    }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400&display=swap");
+
+.container {
+    padding: 40px;
+    margin: 0 auto;
+    & #pokedex {
+        padding-inline-start: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-gap: 20px;
+        & .monster {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            & .monsterBall {
+                width: 80%;
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+}
+
+// .select {
+//     width: 400px;
+//     height: 400px;
+//     border-radius: 50%;
+//     background-color: #fff;
+//     margin: 0 auto;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 0;
+//     transform: none;
+//     & .displayPokemon {
+//         list-style: none;
+//     }
+//     & .card {
+//         list-style: none;
+//         /* padding: 40px;
+//          background-color: #ffffff ;
+//          color: #000000 ;
+//          display: grid;
+//          border-radius: 50%;
+//          position: relative; */
+//         &-image {
+//             height: 180px;
+//             margin: 0 auto;
+//         }
+//         & h2 {
+//             text-align: center;
+//         }
+//         & p {
+//             text-align: center;
+//         }
+//     }
+// }
+.pokeform {
+    text-align: center;
+    & .btn {
+        padding: 10px 20px;
+        background-color: orange;
+        cursor: pointer;
+        border: none;
+    }
+}
+
+.monsterSelect {
+    transform: translateY(50%) scale(1.2);
+    transition: all 1.5s;
+}
+
+.yesNo {
+    display: none;
+}
+
+.training {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    & .up-text{
+      font-size: 24px;
+      font-weight: 800;
+      color: orange;
+      text-shadow: 3px 3px 5px #000 ;
+      margin: 20px 0;
+      & #timeExp{
+        background-color: #fff;
+        text-align: center;
+        font-size: 20px;
+        padding: 8px 12px;
+        border-radius: 8px;
+      }
+    }
+    
+    & .levelup{
+      background-color: orange;
+      padding: 24px 80px;
+      border-radius: 40px;
+      margin: 20px 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
+}
+
+.boxMain {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+    & .handle {
+        width: 20%;
+        & h2 {
             display: inline-block;
             color: #fff;
             background-color: rgb(127, 217, 255);
             padding: 8px 12px;
-       }
-       &-body{
+        }
+        &-body {
             display: flex;
             flex-direction: column;
             gap: 20px;
-            &_container{
-                 background-color:  rgba(127, 217, 255, 0.301);
-                 width: 100%;
-                 height: 10vh;
+            &_container {
+                background-color: rgba(127, 217, 255, 0.301);
+                width: 100%;
+                height: 10vh;
             }
-       }
-  }
-  & .box{
-       width: 60%;
-       & h2{
+        }
+    }
+    & .box {
+        width: 60%;
+        & h2 {
             color: #fff;
             background-color: rgb(127, 217, 255);
             padding: 8px 12px;
             text-align: center;
-       }
-       &-body{
+        }
+        &-body {
             width: 100%;
             height: 90%;
             background-color: rgba(15, 231, 159, 0.24);
             display: flex;
             flex-wrap: wrap;
             overflow: hidden;
-            & .boxPokemon{
-                 width: 10%;
-                 object-fit: contain;
+            & .boxPokemon {
+                width: 10%;
+                object-fit: contain;
             }
-       }
-  }
-  & .featurePokemon{
-       display: flex;
-       align-items: center;
-       width: 20%;
-       height: 100%;
-       &-body{
+        }
+    }
+    & .featurePokemon {
+        display: flex;
+        align-items: center;
+        width: 20%;
+        height: 100%;
+        &-body {
             width: 100%;
             height: 60%;
-            background-color:rgba(127, 217, 255, 0.301);
+            background-color: rgba(127, 217, 255, 0.301);
             position: relative;
-            & .featured{
-                 width: 80%;
-                 position: absolute;
-                 top: 50%;
-                 left: 50%;
-                 transform: translate(-50%, -50%);
-                 filter: drop-shadow(10px 16px 6px rgba(0, 0, 0, 0.319))
+            & .featured {
+                width: 80%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                filter: drop-shadow(10px 16px 6px rgba(0, 0, 0, 0.319));
             }
-       }
-  }
+        }
+    }
 }
 
+.hand-body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/sword_shield_01.jpeg);
+    &_title {
+        text-align: center;
+        color: orange;
+        font-size: 32px;
+        font-weight: 700;
+        padding: 40px;
+        font-family: "Lobster", cursive;
+        font-family: "M PLUS Rounded 1c", sans-serif;
+    }
+}
 
-.pokemonMain{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap:8px;
-  flex-wrap: wrap;
-  & .pokemon{
-       padding: 12px;
-       width: 45%;
-       height: 200px;
-       background-color: rgba(63, 227, 98, 0.229);
-       border-top-right-radius: 40px;
-       border-bottom-left-radius: 40px;
-       position: relative;
-       & .hand{
+.pokemonMain {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    & .pokemon {
+        padding: 12px;
+        width: 45%;
+        height: 200px;
+        background-color: rgba(133, 245, 215, 0.803);
+        border-top-right-radius: 40px;
+        border-bottom-left-radius: 40px;
+        position: relative;
+        text-decoration: none;
+        color: #000;
+        & .hand {
             list-style: none;
             display: flex;
             align-items: center;
-            & img{
-                 width: 35%;
+            & img {
+                width: 35%;
             }
-       }
-       &:hover{
-            outline: 12px solid rgba(63, 227, 99, 0.711);
-       }
-       & .level{
-            & span{
-                 font-size: 20px;
+        }
+        &:hover {
+            outline: 12px solid rgba(227, 156, 63, 0.711);
+        }
+        & .level {
+            & span {
+                font-size: 20px;
             }
-       }
-       & .ballIcon{
+        }
+        & .ballIcon {
             position: absolute;
             top: 5%;
             right: 5%;
             width: 10%;
-            opacity: .7;
-       }
-  }
+            opacity: 0.7;
+        }
+    }
 }
 
-.line{
-  width: 200px;
-  height: 10px;
-  border: 1px solid #000;
-  border-radius: 20px;
-  margin: 12px 0;
-  & .exp{
-       background-color: rgb(127, 202, 255);
-       height: 100%;
-  }
+.line {
+    width: 200px;
+    height: 10px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    margin: 12px 0;
+    & .exp {
+        background-color: rgb(127, 202, 255);
+        height: 100%;
+    }
 }
+
+.main-menu {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/sword_shield_01.jpeg);
+}
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 80px;
+    &-item {
+        background-color: rgb(255, 172, 7);
+        color: #fff;
+        font-size: 20px;
+        white-space: nowrap;
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        padding: 40px 100px;
+        border-radius: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 800;
+        & img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+        }
+        & a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+}
+

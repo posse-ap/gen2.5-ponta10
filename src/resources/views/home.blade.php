@@ -183,7 +183,7 @@
           <aside>
             <div class="modal-hour">
               <p>学習時間<span class="error times"> ※数字を入力してください</span></p>
-              <input type="text" name="time" />
+              <input type="text" name="times" />
             </div>
             <div class="modal-twitter">
               <p>Twitter用コメント</p>
@@ -227,9 +227,11 @@ time("month");
 
     flatpickr.localize(flatpickr.l10ns.ja);
     flatpickr("#calendarTEST");
+    
     google.charts.load("current", {
       packages: ["corechart"]
     });
+
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {

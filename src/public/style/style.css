@@ -910,7 +910,8 @@ header section {
   align-items: center;
 }
 
-.timer, .language {
+.timer,
+.language {
   font-size: 60px;
   text-align: center;
   width: 50%;
@@ -920,7 +921,8 @@ header section {
   margin: 100px auto;
 }
 
-.language, .content {
+.language,
+.content {
   font-size: 16px;
   height: 30%;
   margin: 20px auto;
@@ -950,7 +952,8 @@ header section {
   border-radius: 36px;
 }
 
-#language, #content {
+#language,
+#content {
   font-size: 16px;
   text-align: center;
   width: 30%;
@@ -1247,41 +1250,6 @@ header .now {
   transform: scale(1.2);
 }
 
-.select {
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background-color: #ccc;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  transform: none;
-}
-.select .displayPokemon {
-  list-style: none;
-}
-.select .card {
-  list-style: none;
-  /* padding: 40px;
-  background-color: #ffffff ;
-  color: #000000 ;
-  display: grid;
-  border-radius: 50%;
-  position: relative; */
-}
-.select .card-image {
-  height: 180px;
-  margin: 0 auto;
-}
-.select .card h2 {
-  text-align: center;
-}
-.select .card p {
-  text-align: center;
-}
-
 .pokeform {
   text-align: center;
 }
@@ -1306,6 +1274,29 @@ header .now {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
+}
+.training .up-text {
+  font-size: 24px;
+  font-weight: 800;
+  color: orange;
+  text-shadow: 3px 3px 5px #000;
+  margin: 20px 0;
+}
+.training .up-text #timeExp {
+  background-color: #fff;
+  text-align: center;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.training .levelup {
+  background-color: orange;
+  padding: 24px 80px;
+  border-radius: 40px;
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .boxMain {
@@ -1379,6 +1370,21 @@ header .now {
   filter: drop-shadow(10px 16px 6px rgba(0, 0, 0, 0.319));
 }
 
+.hand-body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/sword_shield_01.jpeg);
+}
+.hand-body_title {
+  text-align: center;
+  color: orange;
+  font-size: 32px;
+  font-weight: 700;
+  padding: 40px;
+  font-family: "Lobster", cursive;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
 .pokemonMain {
   position: fixed;
   top: 50%;
@@ -1395,10 +1401,12 @@ header .now {
   padding: 12px;
   width: 45%;
   height: 200px;
-  background-color: rgba(63, 227, 98, 0.229);
+  background-color: rgba(133, 245, 215, 0.803);
   border-top-right-radius: 40px;
   border-bottom-left-radius: 40px;
   position: relative;
+  text-decoration: none;
+  color: #000;
 }
 .pokemonMain .pokemon .hand {
   list-style: none;
@@ -1409,7 +1417,7 @@ header .now {
   width: 35%;
 }
 .pokemonMain .pokemon:hover {
-  outline: 12px solid rgba(63, 227, 99, 0.711);
+  outline: 12px solid rgba(227, 156, 63, 0.711);
 }
 .pokemonMain .pokemon .level span {
   font-size: 20px;
@@ -1432,4 +1440,48 @@ header .now {
 .line .exp {
   background-color: rgb(127, 202, 255);
   height: 100%;
+}
+
+.main-menu {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/sword_shield_01.jpeg);
+}
+
+.menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 80px;
+}
+.menu-item {
+  background-color: rgb(255, 172, 7);
+  color: #fff;
+  font-size: 20px;
+  white-space: nowrap;
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  padding: 40px 100px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+}
+.menu-item img {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.menu-item a {
+  text-decoration: none;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */

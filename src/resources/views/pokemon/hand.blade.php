@@ -4,18 +4,36 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="{{ asset('/style/style.css') }}">
      <link rel="stylesheet" href="{{ asset('/style/reset.css') }}">
      <title>Document</title>
 </head>
 <body>
+     <div class="hand-body">
+     @if($status == 1)
+          <p class="hand-body_title">どのポケモンをそだてる？？</p>
+     @endif
      <div class="pokemonMain">
-          <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
-          <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
-          <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
-          <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
-          <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
-          <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
+     @if($status == 1)
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 2])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 3])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 4])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 5])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 6])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 7])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
+     @endif
+     @if($status == 2)
+     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
+     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
+     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
+     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
+     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
+     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>     
+     @endif
+     </div>
      </div>
      <script>
           const fetchPokemon = () => {

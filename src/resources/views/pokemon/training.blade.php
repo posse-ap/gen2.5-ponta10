@@ -23,7 +23,18 @@
           }
      </style>
      <div class="pokeHome">
-          <ul class="select training"></ul>
+     <div class="training">
+     <div class="up-text">
+          <select name="" id="timeExp">
+          @for($i = 0; $i < $exp; $i++  )
+          <option value="{{$i + 1}}">{{$i + 1}}時間</option>
+          @endfor
+     </select>
+     <span>つかう</span>
+     </div>
+          <ul class="select"></ul>
+          <button class=levelup>いくせいする</button>
+     </div>
      </div>
      <script>
           const select = document.querySelector(".select");
@@ -39,17 +50,8 @@
 
           const fetchPokemon = () => {
                const promises = [];
-               const url {
-                    {
-                         $pokemon[0] - > id
-                    }
-               } = `https:pokeapi.co/api/v2/pokemon/{{$pokemon[0]->id}}`;
-               promises.push(fetch(url {
-                    {
-                         $pokemon[0] - > id
-                    }
-               }).then((res) => res.json()));
-
+               const url{{$pokemon->id}} = `https:pokeapi.co/api/v2/pokemon/{{$pokemon->id}}`;
+               promises.push(fetch(url{{$pokemon->id}}).then((res) => res.json()));
                Promise.all(promises).then(results => {
                     const pokemon = results.map((data) => ({
                          name: data.name,
@@ -63,8 +65,8 @@
 
 
           let pokemonDetail = [{
-               name: "{{$pokemon[0]->name}}",
-               type: "{{$pokemon[0]->type}}"
+               name: "{{$pokemon->name}}",
+               type: "{{$pokemon->type}}"
           }, ]
 
           const color = [{
@@ -83,20 +85,62 @@
 
 
           const displayPokemon = (pokemon) => {
+               console.log(pokemon);
                // console.log(ball.dataset.id);
-               const pokemonHTNLString = `
+               const pokemonHTMLString = `
                <li class="card">
                     <img class="card-image" src="${pokemon[0].image}" />
-                    <h2>${pokemonDetail[0].name}</h2>
-                    <p>${pokemonDetail[0].type}</p>
+                    <h2>{{$pokemon->name}}</h2>
+                    <p>{{$pokemon->type}}</p>
+                    <div class="line">
+                    <div class="exp"></div>
+               </div>
                </li>
+               <style>
+               .line::after{
+                    content: "Lv${level}";
+                    // font-size: 24px;
+                    // font-weight: 700;
+               }
+               .exp{
+                    width : ${expWidth}%;
+                    transition : all .5s;
+               }
+               .up{
+                    animation : levelup 1s linear forwards;
+               }
+               @keyframes levelup{
+                    0%{
+                         width : ${expWidth}%;   
+                    }
+                    25%{
+                         width: 100%;
+                    }
+                    40%{
+                         opacity : 0;
+                    }
+                    50%{
+                         width: 0%;
+                    }
+                    100%{
+                         width: 40%;
+                    }
+               }
+               </style>
           `
-               const typeIndex = color.findIndex(acc => acc.type === pokemonDetail[0].type);
-               select.style.backgroundColor = color[typeIndex].color;
-               select.innerHTML = pokemonHTNLString;
+               // const typeIndex = color.findIndex(acc => acc.type === pokemonDetail.type);
+               // select.style.backgroundColor = color[typeIndex].color;
+               select.innerHTML = pokemonHTMLString;
           };
-
+          const hour = 74;
+          const level  = Math.floor(hour / 5);
+          const expWidth = (hour % 5) * 20;
           fetchPokemon();
+          const levelup = document.querySelector('.levelup');
+          levelup.addEventListener('click', function() {
+               const exp  = document.querySelector('.exp');
+               exp.classList.add('up');            
+          })
      </script>
 </body>
 
