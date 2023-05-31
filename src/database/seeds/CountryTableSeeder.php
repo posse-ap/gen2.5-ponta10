@@ -45,6 +45,10 @@ class CountryTableSeeder extends Seeder
                 'name' => 'ガラル地方',
                 'en' => 'gararu'
             ],
+            [
+                'name' => 'パルデア地方',
+                'en' => 'parudea'
+            ],
         ];
         foreach ($params as $param) {
             DB::table('countries')->insert($param);

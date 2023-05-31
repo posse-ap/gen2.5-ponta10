@@ -32,12 +32,12 @@
      </select>
      <span>つかう</span>
      </div>
-          <ul class="select"></ul>
+          <ul class="selectPokemon"></ul>
           <button class=levelup>いくせいする</button>
      </div>
      </div>
      <script>
-          const select = document.querySelector(".select");
+          const select = document.querySelector(".selectPokemon");
 
           //ジョウト 152~161
           //ホウエン 252~261

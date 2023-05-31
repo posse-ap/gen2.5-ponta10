@@ -23,7 +23,14 @@
           }
      </style>
      <div class="pokemonHome">
-          <ul class="select"></ul>
+          <ul class="selectPokemon">
+          </ul>
+          <form action="{{ route('pokemon_store') }}" class="yesNo" method="post" enctype="multipart/form-data">
+               @csrf
+               <div class="hidden"></div>
+               <input class="yesBtn" type="submit" value="はい">
+               <button class="noBtn" type="button">いいえ</button>
+          </form>
           <div class="container">
                <ol id="pokedex"></ol>
                <!-- <div class="border">
@@ -34,17 +41,11 @@
           <div class="pokeform">
                <button class="btn">このポケモンにする</button>
           </div>
-          <form action="{{ route('pokemon_store') }}" class="yesNo" method="post" enctype="multipart/form-data">
-               @csrf
-               <div class="hidden"></div>
-               <input type="submit" value="はい">
-               <button class="noBtn" type="button">いいえ</button>
-          </form>
           <div id="poke_container" class="poke_container"></div>
      </div>
      <script>
           const pokedex = document.getElementById("pokedex");
-          const select = document.querySelector(".select");
+          const select = document.querySelector(".selectPokemon");
 
           //ジョウト 152~161
           //ホウエン 252~261

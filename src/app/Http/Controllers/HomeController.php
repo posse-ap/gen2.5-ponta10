@@ -7,6 +7,9 @@ use App\Todo;
 use App\Language;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Hand;
+use App\Pokemon;
+use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
@@ -43,7 +46,7 @@ class HomeController extends Controller
         endfor;
 
         //コンテンツごと
-        $contents = ['N予備校','ドットインストール','POSSE課題'];
+        $contents = ['N予備校','ドットインストール','POSSE課題','Udemy'];
         foreach($contents as $content): 
         $contentSum = Study::where('user_id',$user['id'])->where('content', $content)->where('date','LIKE',$monthDate.'%')->sum('hour');
         $contentArray[$content] = isset($contentSum) ? $contentSum : 0;
@@ -56,7 +59,17 @@ class HomeController extends Controller
         $languageArray[$language->name] = isset($languageSum) ? $languageSum : 0;
         endforeach;
 
-        return view('/home',compact('sum','todaySum','monthSum','dateArray','contentArray','languageArray','monthDateArray','id','languages'));
+        if(Hand::where('user_id', $user['id'])->get()->isEmpty()){
+            $handPokemons = [];
+            $pokemons = [];
+        }else{
+            $handPokemons = Hand::where('user_id', $user['id'])->get();
+            foreach ($handPokemons as $handPokemon):
+                $pokemons[] = Pokemon::where('id',$handPokemon->pokemon_id)->get();
+            endforeach;
+        }
+
+        return view('/home',compact('sum','todaySum','monthSum','dateArray','contentArray','languageArray','monthDateArray','id','languages','pokemons','handPokemons'));
     }
 
     public function week($id)
@@ -136,8 +149,13 @@ class HomeController extends Controller
             $weeks[] = $weekDateArray["日"] . '~' . $weekDateArray["土"];
         endfor;
 
+        $handPokemons = Hand::where('user_id', $user['id'])->get();
+        foreach ($handPokemons as $handPokemon):
+            $pokemons[] = Pokemon::where('id',$handPokemon->pokemon_id)->get();
+        endforeach;
 
-        return view('week',compact('todaySum','weekSum','average','languageWeekArray','languageWeekRatioArray','weekArray','todoArray','done_todoArray','weekAfterArray','weeks','id','languages'));
+
+        return view('week',compact('todaySum','weekSum','average','languageWeekArray','languageWeekRatioArray','weekArray','todoArray','done_todoArray','weekAfterArray','weeks','id','languages','pokemons','handPokemons'));
     }
 
 
@@ -147,7 +165,7 @@ class HomeController extends Controller
         $user = \Auth::user();
         $create_hour = Study::insertGetId([
             'user_id' => $user['id'],
-            'hour' => $data['times'],
+            'hour' => $data['times'] ?? $data['learn-times'],
             'content' => $data['contents'],
             'language' => $data['language'],
             'date' => $data['date'],
@@ -221,5 +239,22 @@ class HomeController extends Controller
 
 
         return redirect()->route('week',['id' => 0]);
+    }
+
+    public function api(){
+        $api_key = "/news";//ここにAPI_KEY
+
+        $url = "https://bkrs3waxwg.execute-api.ap-northeast-1.amazonaws.com/default" . $api_key;//url次第
+        $method = "GET";
+
+        //接続
+        $client = new Client();
+
+        $response = $client->request($method, $url);
+
+        $posts = $response->getBody();
+        $posts = json_decode($posts, true);//jsonに変換
+
+        return view('api', ['posts' => $posts]);
     }
 }

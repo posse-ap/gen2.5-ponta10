@@ -20,25 +20,28 @@
   <a href="{{ route('week', [ 'id' => $id - 1 ]) }}" class="after"><img src="{{ asset('img/iconmonstr-angel-right-circle-thin-240.png') }}" alt=""></a>
   @endif
   <header>
-    <div class="logo">
-      <img src="{{ asset('/img/ponta.png') }}" class="img" />
+  <div class="logo">
+    <img src="{{ asset('/img/ponta.png') }}" class="img"/>
       <img src="{{ asset('/img/pengin.png') }}" alt="" class="pengin">
+      <a href="{{route('pokemon')}}" class="pokemonLink"><img src="{{ asset('/img/ball_lb.png') }}" alt="" class="pengin"></a>
       <div>
-        <a href="{{ route('home',['id' => 0]) }}" class="link">月</a>
-        <a href="#" class="now link">週</a>
+      <a href="{{ route('home',['id' => 0]) }}" class="link">月</a>
+      <a href="#" class="now link">週</a>
       </div>
     </div>
-    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
-      {{ __('Logout') }}
-    </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
       @csrf
     </form>
-    <img src="{{asset('/img/iconmonstr-gear-8-240.png')}}" alt="" class="setting" onclick="setting()">
+    <div class="pokemonHand">
+    </div>
+    <!-- <img src="{{asset('/img/iconmonstr-gear-8-240.png')}}" alt="" class="setting" onclick="setting()"> -->
     <section class="btn" onclick="recording()">
       <button class="record">記録・投稿</button>
     </section>
+    <!-- <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                  document.getElementById('logout-form').submit();">
+      <img src="{{ asset('/img/logout.png') }}" alt="" class="pengin">
+    </a> -->
   </header>
   <div class="main">
     <div class="data">
@@ -74,7 +77,7 @@
               <a href="{{ route('language',['language_id' => $language->id] )}}" class="languageSubmit">{{$language->name}}</a>
               <form action="{{ route('language_delete',['language_id' => $language->id ]) }}" method="post" enctype="multipart/form">
                 @csrf
-                <input type="image" src="{{ asset('\img\iconmonstr-trash-can-9-240.png') }}" class="image">
+                <input type="image" src="{{ asset('\img\trash_can.png') }}" class="image">
               </form>
             </div>
             <div class="border {{$language->name}}"></div><span id="{{$language->name}}"></span>
@@ -100,7 +103,7 @@
               <div class="todo">
                 <form action="{{route('todo_delete',['todo_id' => $todo['id'] ])}}" method="post" enctype="multipart/form">
                   @csrf
-                  <p>{{$todo->deadline}}〆<input type="image" src="{{ asset('\img\iconmonstr-trash-can-9-240.png') }}" class="image"></p>
+                  <p>{{$todo->deadline}}〆<input type="image" src="{{ asset('\img\trash_can.png') }}" class="image"></p>
                 </form>
                 <div class="edit">
                   <h3>{{$todo->text}}</h3>
@@ -341,6 +344,55 @@
     const minute{{$language}} = document.querySelector("#{{$language}}");
     minute{{$language}}.innerHTML = {{$languageSum}}* 60 + "分";
     @endforeach
+
+    const fetchPokemon = () => {
+   const promises = [];
+//    for(let i = 1; i < 7; i++) {
+//           const url = `https:pokeapi.co/api/v2/pokemon/${i}`;
+//           promises.push(fetch(url).then((res) => res.json()));
+//    }
+
+     @forEach($handPokemons as $handPokemon)
+          const url{{$handPokemon->pokemon_id}} = `https:pokeapi.co/api/v2/pokemon/{{$handPokemon->pokemon_id}}`;
+          promises.push(fetch(url{{$handPokemon->pokemon_id}}).then((res) => res.json()));
+     @endforeach
+
+   Promise.all(promises).then( results => {
+       const pokemon = results.map((data) => ({
+           name: data.name,
+           id: data.id,
+           image: data.sprites.front_default,
+          //  image: data.sprites.other['official-artwork'].front_default,
+           type: data.types.map((type) => type.type.name).join(', ')
+       }));
+       let pokemonDetail = [
+          
+ @foreach ($pokemons as $pokemon)
+    @foreach($pokemon as $value)
+    {
+    name: "{{$value->name}}",
+    type: "{{$value->type}}"
+    },
+    @endforeach
+    @endforeach
+];
+       const pokemonHTNLString = pokemon.map( (pokemon,index) =>`
+               <li class="hand">
+                    <img class="handImg" src="${pokemon.image}" />
+               </li>
+          `);
+       pokemon.forEach((element,index) => {
+          const handPokemons = document.querySelector(".pokemonHand");
+          handPokemons.insertAdjacentHTML('beforeend', pokemonHTNLString[index]);
+          });
+   });
+};
+
+fetchPokemon();
+
+const hour = 71;
+const level  = Math.floor(hour / 5);
+const expWidth = (hour % 5) * 20;
   </script>
   <script src="{{ asset('/js/main.js') }}"></script>
 </body>

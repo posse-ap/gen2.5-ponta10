@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CountryTableSeeder::class);
         $this->call(PokemonTableSeeder::class);
         $this->call(Pokemon_userTableSeeder::class);
+        $this->call(HandsTableSeeder::class);
     }
 }

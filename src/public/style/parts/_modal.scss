@@ -248,3 +248,19 @@
   padding: 10px;
   cursor: pointer;
 }
+
+.modal {
+  padding: 36px;
+  &-contents{
+    margin: 16px 0;
+  }
+  &-languages{
+    margin: 16px 0;
+  }
+  &-hour{
+    margin: 16px 0;
+  }
+  &-twitter{
+    margin: 16px 0;
+  }
+}

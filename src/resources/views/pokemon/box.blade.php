@@ -9,9 +9,16 @@
      <title>Document</title>
 </head>
 <body>
+     <style>
+          body{
+               background-image: url("{{ asset('/img/center.png') }}");
+               background-size: cover;
+               height: 100vh;
+          }
+     </style>
 <form action="{{ route('hand_store') }}"  method="post" enctype="multipart/form-data">
                @csrf
-               <input type="submit" value="確定">
+               <input type="submit" value="確定" class="boxBtn">
      <div class="boxMain">
           <div class="handle">
                <h2>てもち</h2>
@@ -155,7 +162,6 @@
 
 // fetchPokemon();
 
-
 const fetchPokemon2 = () => {
    const promises = [];
     @foreach($handArrays as $pokemon)
@@ -179,7 +185,10 @@ const fetchPokemon2 = () => {
 const displayPokemon2 = (pokemon) => {
 pokemon.forEach( (pokemon,index) => {
      const handle = document.querySelector(".handle-body");
-     handle.children[index].innerHTML = `<img class="boxPokemon drag" src="${pokemon.image}" data-id="${pokemon.id}" />`;
+     handle.children[index].innerHTML = `
+     <img class="boxPokemon drag" src="${pokemon.image}" data-id="${pokemon.id}" />
+     <input type="hidden" name="hand[]" value="${pokemon.id}" >
+     `;
 });
    const boxPokemons = document.querySelectorAll(".boxPokemon");
    boxPokemons.forEach(function(boxPokemon){
@@ -269,7 +278,7 @@ const sortElement = document.querySelector('.box-body');
           element.target.appendChild(target);
       }
       const index = [...drops].findIndex(list => list === element.target);
-      element.target.insertAdjacentHTML('beforeend',`<input type='hidden'name="hand[${index+1}]" value="${target.dataset.id}"/>`)
+      element.target.insertAdjacentHTML('beforeend',`<input type='hidden'name="hand[]" value="${target.dataset.id}"/>`)
     }, false);
 })
 ;}

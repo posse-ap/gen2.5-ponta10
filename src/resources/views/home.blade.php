@@ -24,18 +24,14 @@
     <div class="logo">
     <img src="{{ asset('/img/ponta.png') }}" class="img"/>
       <img src="{{ asset('/img/pengin.png') }}" alt="" class="pengin">
+      <a href="{{route('pokemon')}}" class="pokemonLink"><img src="{{ asset('/img/ball_lb.png') }}" alt="" class="pengin"></a>
       <div>
       <a href="#" class="now link">月</a>
       <a href="{{ route('week',['id' => 0]) }}" class="link">週</a>
       </div>
     </div>
-    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
-          {{ __('Logout') }}
-     </a>
-     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-    </form>
+    <div class="pokemonHand">
+    </div>
     <section class="btn" onclick="recording()">
       <button class="record">記録・投稿</button>
     </section>
@@ -79,9 +75,11 @@
               <li class="legend">SQL</li>
               <li class="legend">Laravel</li>
               <br />
-              <li class="legend">SHELL</li>
+              <li class="legend">React</li>
               <br />
-              <li class="legend">情報システム基礎(その他)</li>
+              <li class="legend">WordPress</li>
+              <br />
+              <li class="legend">GitHub</li>
             </div>
           </div>
           <div class="circle-contents circleBox">
@@ -93,6 +91,8 @@
               <li class="legend2">ドットインストール</li>
               <br />
               <li class="legend2">POSSE課題</li>
+              <br />
+              <li class="legend2">Udemy</li>
             </div>
           </div>
         </section>
@@ -108,7 +108,7 @@
      <div class="setSelect">
      <select id="language">
           @foreach($languages as $language)
-          <option value="{{$language}}">{{$language}}</option>
+          <option value="{{$language->name}}">{{$language->name}}</option>
           @endforeach
       </select>
       <select id="content">
@@ -116,7 +116,6 @@
           <option value="ドットインストール">ドットインストール</option>
           <option value="POSSE課題">POSSE課題</option>
           <option value="Udemy">Udemy</option>
-          <option value="自主制作">自主制作</option>
           <option value="その他">その他</option>
       </select>
      </div>
@@ -135,7 +134,7 @@
           </div>
           <button type="submit" class="timeRecord">
                記録する
-            </button>
+          </button>
     </form>
 </div>
     <p class="timer"><span id="hour"></span></span>:<span id="min"></span>:<span id="sec"></span></p>
@@ -168,6 +167,7 @@
                 <option value="N予備校">N予備校</option>
                 <option value="ドットインストール">ドットインストール</option>
                 <option value="POSSE課題">POSSE課題</option>
+                <option value="Udemy">Udemy</option>
               </select>
             </div>
             <div class="modal-language">
@@ -183,7 +183,7 @@
           <aside>
             <div class="modal-hour">
               <p>学習時間<span class="error times"> ※数字を入力してください</span></p>
-              <input type="text" name="times" />
+              <input type="number" name="learn-times"  />
             </div>
             <div class="modal-twitter">
               <p>Twitter用コメント</p>
@@ -287,7 +287,7 @@ time("month");
         backgroundColor: "transparent",
         legend: "none",
         fontSize: 15,
-        colors: ["#ff4500", "#ff6347", "#ff8c00"],
+        colors: ["#ff4500", "#ff6347", "#ff8c00","#ffa500"],
         pieSliceBorderColor: "none",
         chartArea: {
           left: 0,
@@ -379,7 +379,54 @@ time("month");
       },
     });
     
-    
+    const fetchPokemon = () => {
+   const promises = [];
+//    for(let i = 1; i < 7; i++) {
+//           const url = `https:pokeapi.co/api/v2/pokemon/${i}`;
+//           promises.push(fetch(url).then((res) => res.json()));
+//    }
+
+     @forEach($handPokemons as $handPokemon)
+          const url{{$handPokemon->pokemon_id}} = `https:pokeapi.co/api/v2/pokemon/{{$handPokemon->pokemon_id}}`;
+          promises.push(fetch(url{{$handPokemon->pokemon_id}}).then((res) => res.json()));
+     @endforeach
+
+   Promise.all(promises).then( results => {
+       const pokemon = results.map((data) => ({
+           name: data.name,
+           id: data.id,
+           image: data.sprites.front_default,
+          //  image: data.sprites.other['official-artwork'].front_default,
+           type: data.types.map((type) => type.type.name).join(', ')
+       }));
+       let pokemonDetail = [
+          
+ @foreach ($pokemons as $pokemon)
+    @foreach($pokemon as $value)
+    {
+    name: "{{$value->name}}",
+    type: "{{$value->type}}"
+    },
+    @endforeach
+    @endforeach
+];
+       const pokemonHTNLString = pokemon.map( (pokemon,index) =>`
+               <li class="hand">
+                    <img class="handImg" src="${pokemon.image}" />
+               </li>
+          `);
+       pokemon.forEach((element,index) => {
+          const handPokemons = document.querySelector(".pokemonHand");
+          handPokemons.insertAdjacentHTML('beforeend', pokemonHTNLString[index]);
+          });
+   });
+};
+
+fetchPokemon();
+
+const hour = 71;
+const level  = Math.floor(hour / 5);
+const expWidth = (hour % 5) * 20;
 
   </script>
   <script src="{{ asset('/js/main.js') }}"></script>

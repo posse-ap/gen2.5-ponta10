@@ -102,19 +102,15 @@ class PokemonController extends Controller
     {
         $data = $request->all();
         $user = Auth::user();
+        Hand::query()->delete();
         foreach($data['hand'] as $key => $hand):
-        $count = Pokemon_user::where('user_id', $user['id'])->count();
-        if($count < 7){
+
                     Hand::create([
-                        'id' => $key,
+                        'id' => $key+1,
                         'user_id' => $user['id'],
-                        'pokemon_id' => 0,
+                        'pokemon_id' => $hand,
                     ]);
-                }
         //変更可能性あり
-        Hand::where('user_id', $user['id'])->where('id',$key+1)->update([
-            'pokemon_id' => $hand,
-        ]);
         endforeach;
         return redirect()->route('pokemon.hand',['status' => 2]);
     }

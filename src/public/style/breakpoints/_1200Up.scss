@@ -32,9 +32,10 @@ header{
     width: 32%;
     & h2{
       font-size: 45px;
+      color: rgb(80, 80, 80);
     }
     & h3{
-      font-size: 25px;
+      font-size: 18px;
     }
   }
   & .bar{
@@ -57,8 +58,11 @@ header{
 }
 
 .graphText,.graphText2{
-  font-size: 20px;
-  margin-top: -50px;
+  font-size: 16px;
+  margin-top: 20px;
+  li{
+    margin-right: 12px;
+  }
 }
 
 
@@ -111,7 +115,7 @@ header{
   border-radius: 20px;
   z-index: 9;
   transition: transform 0.5s;
-  padding: 15px;
+  padding: 36px;
   & > div{
     margin: 20px 0;
     & > div{

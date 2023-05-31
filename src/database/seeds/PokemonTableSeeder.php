@@ -77,6 +77,34 @@ class PokemonTableSeeder extends Seeder
                 'type' => 'みず'
             ],
             [
+                'country_id' => 1,
+                'id' => 144,
+                'status' => 3,
+                'name' => 'フリーザー',
+                'type' => 'こおり'
+            ],
+            [
+                'country_id' => 1,
+                'id' => 145,
+                'status' => 3,
+                'name' => 'サンダー',
+                'type' => 'でんき'
+            ],
+            [
+                'country_id' => 1,
+                'id' => 146,
+                'status' => 3,
+                'name' => 'ファイヤー',
+                'type' => 'ほのお'
+            ],
+            [
+                'country_id' => 1,
+                'id' => 150,
+                'status' => 3,
+                'name' => 'ミュウツー',
+                'type' => 'エスパー'
+            ],
+            [
                 'country_id' => 2,
                 'id' => 152,
                 'status' => 1,
@@ -138,6 +166,20 @@ class PokemonTableSeeder extends Seeder
                 'status' => 3,
                 'name' => 'オーダイル',
                 'type' => 'みず'
+            ],
+            [
+                'country_id' => 2,
+                'id' => 249,
+                'status' => 3,
+                'name' => 'ルギア',
+                'type' => 'エスパー'
+            ],
+            [
+                'country_id' => 2,
+                'id' => 250,
+                'status' => 3,
+                'name' => 'ホウオウ',
+                'type' => 'ほのお'
             ],
             [
                 'country_id' => 3,
@@ -203,6 +245,48 @@ class PokemonTableSeeder extends Seeder
                 'type' => 'みず'
             ],
             [
+                'country_id' => 3,
+                'id' => 380,
+                'status' => 3,
+                'name' => 'ラティアス',
+                'type' => 'エスパー'
+            ],
+            [
+                'country_id' => 3,
+                'id' => 381,
+                'status' => 3,
+                'name' => 'ラティオス',
+                'type' => 'エスパー'
+            ],
+            [
+                'country_id' => 3,
+                'id' => 382,
+                'status' => 3,
+                'name' => 'カイオーガ',
+                'type' => 'みず'
+            ],
+            [
+                'country_id' => 3,
+                'id' => 383,
+                'status' => 3,
+                'name' => 'グラードン',
+                'type' => 'じめん'
+            ],
+            [
+                'country_id' => 3,
+                'id' => 384,
+                'status' => 3,
+                'name' => 'レックウザ',
+                'type' => 'ドラゴン'
+            ],
+            [
+                'country_id' => 3,
+                'id' => 386,
+                'status' => 3,
+                'name' => 'デオキシス',
+                'type' => 'エスパー'
+            ],
+            [
                 'country_id' => 4,
                 'id' => 387,
                 'status' => 1,
@@ -264,6 +348,62 @@ class PokemonTableSeeder extends Seeder
                 'status' => 3,
                 'name' => 'エンペルト',
                 'type' => 'みず'
+            ],
+            [
+                'country_id' => 4,
+                'id' => 483,
+                'status' => 3,
+                'name' => 'ディアルガ',
+                'type' => 'はがね'
+            ],
+            [
+                'country_id' => 4,
+                'id' => 484,
+                'status' => 3,
+                'name' => 'パルキア',
+                'type' => 'みず'
+            ],
+            [
+                'country_id' => 4,
+                'id' => 485,
+                'status' => 3,
+                'name' => 'ヒードラン',
+                'type' => 'ほのお'
+            ],
+            [
+                'country_id' => 4,
+                'id' => 486,
+                'status' => 3,
+                'name' => 'レジギガス',
+                'type' => 'ノーマル'
+            ],
+            [
+                'country_id' => 4,
+                'id' => 487,
+                'status' => 3,
+                'name' => 'ギラティナ',
+                'type' => 'ゴースト'
+            ],
+            [
+                'country_id' => 4,
+                'id' => 488,
+                'status' => 3,
+                'name' => 'クレセリア',
+                'type' => 'エスパー'
+            ],
+            [
+                'country_id' => 4,
+                'id' => 491,
+                'status' => 3,
+                'name' => 'ダークライ',
+                'type' => 'あく'
+            ],
+            [
+                'country_id' => 4,
+                'id' => 493,
+                'status' => 3,
+                'name' => 'アルセウス',
+                'type' => 'ノーマル'
             ],
             [
                 'country_id' => 5,
@@ -329,6 +469,48 @@ class PokemonTableSeeder extends Seeder
                 'type' => 'みず'
             ],
             [
+                'country_id' => 5,
+                'id' => 641,
+                'status' => 3,
+                'name' => 'トルネロス',
+                'type' => 'ひこう'
+            ],
+            [
+                'country_id' => 5,
+                'id' => 642,
+                'status' => 3,
+                'name' => 'ボルトロス',
+                'type' => 'でんき'
+            ],
+            [
+                'country_id' => 5,
+                'id' => 643,
+                'status' => 3,
+                'name' => 'レシラム',
+                'type' => 'ほのお'
+            ],
+            [
+                'country_id' => 5,
+                'id' => 644,
+                'status' => 3,
+                'name' => 'ゼクロム',
+                'type' => 'でんき'
+            ],
+            [
+                'country_id' => 5,
+                'id' => 645,
+                'status' => 3,
+                'name' => 'ランドロス',
+                'type' => 'みず'
+            ],
+            [
+                'country_id' => 5,
+                'id' => 646,
+                'status' => 3,
+                'name' => 'キュレム',
+                'type' => 'こおり'
+            ],
+            [
                 'country_id' => 6,
                 'id' => 650,
                 'status' => 1,
@@ -390,6 +572,27 @@ class PokemonTableSeeder extends Seeder
                 'status' => 3,
                 'name' => 'ゲッコウガ',
                 'type' => 'みず'
+            ],
+            [
+                'country_id' => 6,
+                'id' => 716,
+                'status' => 3,
+                'name' => 'ゼルネアス',
+                'type' => 'フェアリー'
+            ],
+            [
+                'country_id' => 6,
+                'id' => 717,
+                'status' => 3,
+                'name' => 'イベルタル',
+                'type' => 'あく'
+            ],
+            [
+                'country_id' => 6,
+                'id' => 718,
+                'status' => 3,
+                'name' => 'ジガルデ',
+                'type' => 'じめん'
             ],
             [
                 'country_id' => 7,
@@ -455,6 +658,27 @@ class PokemonTableSeeder extends Seeder
                 'type' => 'みず'
             ],
             [
+                'country_id' => 7,
+                'id' => 791,
+                'status' => 3,
+                'name' => 'ソルガレオ',
+                'type' => 'エスパー'
+            ],
+            [
+                'country_id' => 7,
+                'id' => 792,
+                'status' => 3,
+                'name' => 'ルナアーラ',
+                'type' => 'エスパー'
+            ],
+            [
+                'country_id' => 7,
+                'id' => 800,
+                'status' => 3,
+                'name' => 'ネクロズマ',
+                'type' => 'エスパー'
+            ],
+            [
                 'country_id' => 8,
                 'id' => 810,
                 'status' => 1,
@@ -516,6 +740,97 @@ class PokemonTableSeeder extends Seeder
                 'status' => 3,
                 'name' => 'インテレオン',
                 'type' => 'みず'
+            ],
+            [
+                'country_id' => 8,
+                'id' => 888,
+                'status' => 3,
+                'name' => 'ザシアン',
+                'type' => 'はがね'
+            ],
+            [
+                'country_id' => 8,
+                'id' => 889,
+                'status' => 3,
+                'name' => 'ザマゼンタ',
+                'type' => 'かくとう'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 906,
+                'status' => 1,
+                'name' => 'ニャオハ',
+                'type' => 'くさ'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 907,
+                'status' => 2,
+                'name' => 'ニャローテ',
+                'type' => 'くさ'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 908,
+                'status' => 3,
+                'name' => 'マスカーニャ',
+                'type' => 'くさ'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 909,
+                'status' => 1,
+                'name' => 'ホゲータ',
+                'type' => 'ほのお'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 910,
+                'status' => 2,
+                'name' => 'アチゲータ',
+                'type' => 'ほのお'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 911,
+                'status' => 3,
+                'name' => 'ラウドボーン',
+                'type' => 'ほのお'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 912,
+                'status' => 1,
+                'name' => 'クワッス',
+                'type' => 'みず'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 913,
+                'status' => 2,
+                'name' => 'ウェルカモ',
+                'type' => 'みず'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 914,
+                'status' => 3,
+                'name' => 'ウェーニバル',
+                'type' => 'みず'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 1007,
+                'status' => 3,
+                'name' => 'コライドン',
+                'type' => 'かくとう'
+            ],
+            [
+                'country_id' => 9,
+                'id' => 1008,
+                'status' => 3,
+                'name' => 'ミライドン',
+                'type' => 'でんき'
             ],
         ];
         foreach ($params as $param) {

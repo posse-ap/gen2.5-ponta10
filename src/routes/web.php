@@ -47,3 +47,5 @@ Route::get('/pokemon/select/{id}', 'PokemonController@select')->name('pokemon.se
 Route::get('/pokemon/hand/{status}', 'PokemonController@hand')->name('pokemon.hand');
 Route::get('/pokemon/box', 'PokemonController@box')->name('pokemon.box');
 Route::get('/pokemon/trainig/{id}', 'PokemonController@training')->name('pokemon.training');
+
+Route::get('/api','HomeController@api')->name('api');

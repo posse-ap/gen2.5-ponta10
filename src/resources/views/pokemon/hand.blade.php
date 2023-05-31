@@ -13,26 +13,15 @@
 </head>
 <body>
      <div class="hand-body">
-     @if($status == 1)
           <p class="hand-body_title">どのポケモンをそだてる？？</p>
-     @endif
      <div class="pokemonMain">
-     @if($status == 1)
-     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 2])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
-     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 3])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
-     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 4])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
-     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 5])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
-     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 6])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
-     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 7])}}"><img src="./img/ball_lb.png" alt="" class="ballIcon"></a>
-     @endif
-     @if($status == 2)
-     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
-     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
-     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
-     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
-     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>
-     <div class="pokemon"><img src="./img/ball_lb.png" alt="" class="ballIcon"></div>     
-     @endif
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 1])}}"></a>
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 2])}}"></a>
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 3])}}"></a>
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 4])}}"></a>
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 5])}}"></a>
+     <a class="pokemon" href="{{route('pokemon.training' , ['id' => 6])}}"></a>
+
      </div>
      </div>
      <script>
@@ -70,7 +59,7 @@
        const pokemonHTNLString = pokemon.map( (pokemon,index) =>`
                <li class="hand">
                     <img class="handImg" src="${pokemon.image}" />
-                    <h2>${pokemonDetail[index].name}</h2>
+                    <h2>${pokemonDetail[index]?.name}</h2>
                </li>
                <div class="line">
                     <div class="exp"></div>

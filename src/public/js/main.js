@@ -36,7 +36,7 @@ function recording2(){
 }
 
 //モーダルクローズ
-closed2.addEventListener('click',function(){
+closed2?.addEventListener('click',function(){
   modal.classList.remove('trans');
   load.classList.remove('inview');
   black.classList.remove('blacky');
@@ -46,7 +46,7 @@ closed2.addEventListener('click',function(){
   },500)
 })
 
-closed3.addEventListener('click',function(){
+closed3?.addEventListener('click',function(){
   set.classList.remove('trans');
   black.classList.remove('blacky');
 })
@@ -79,10 +79,9 @@ const errorLanguage = document.querySelector('.language');
 const errorDay = document.querySelector('.day');
 const errorTimes = document.querySelector('.times');
 let inputDay = document.querySelector('input[name="date"]');
-let inputTime = document.querySelector('input[name="times"]')
+let inputTime = document.querySelector('input[name="learn-times"]')
 let selectLanguage = document.querySelector('.lan');
 let selectContents = document.querySelector('.con');
-
 
 
 
@@ -104,7 +103,7 @@ $(function(){
     }else{
       errorDay.style.display ="none"
     }
-    if(isNaN(inputTime.value) == true || inputTime.value === ''){
+    if(isNaN(inputTime.value) == false || inputTime.value === ''){
       errorTimes.style.display="inline"
       console.log(inputTime.value)
     }else{
@@ -118,14 +117,14 @@ $(function(){
 
 const pengin = document.querySelector(".pengin");
 const timer = document.querySelector(".time");
-pengin.addEventListener("click",function(){
+pengin?.addEventListener("click",function(){
   console.log("aaa")
   timer.style.display = "block";
   black.classList.add('blacky');
 })
 
 const close4 = document.querySelector(".closeBtn4");
-close4.addEventListener("click",function(){
+close4?.addEventListener("click",function(){
   black.classList.remove('blacky');
   timer.style.display = "none";
 })
@@ -144,7 +143,7 @@ function getConversionRgba(color_code, alpha = 1) {
 
 const color = document.getElementById("color");
 const colorBtn = document.querySelector(".colorBtn");
-colorBtn.addEventListener("click", () => {
+colorBtn?.addEventListener("click", () => {
   const rgbaValue = getConversionRgba(color.value);
   let backColor = rgbaValue.replace('1)','0.3)');
   console.log(backColor);

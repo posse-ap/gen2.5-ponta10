@@ -17,6 +17,7 @@
         <li class="menu-item"><img src="{{ asset('img/ball_lb.png')}}"><a href="{{ route('pokemon.country') }}">ポケモンをつかまえる</a></li>
         <li class="menu-item"><img src="{{ asset('img/ball_lb.png')}}"><a href="{{ route('pokemon.box') }}">ボックスをみる</a></li>
         <li class="menu-item"><img src="{{ asset('img/ball_lb.png')}}"><a href="{{ route('pokemon.hand', ['status' => 2])}}">てもちをみる</a></li>
+        <li class="menu-item"><img src="{{ asset('img/ball_lb.png')}}"><a href="{{ route('home',['id' => 0]) }}">ホームに戻る</a></li>
     </ul>
     </div>
 </body>

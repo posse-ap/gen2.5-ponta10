@@ -42,6 +42,10 @@
        background-image: url("{{asset('./img/ガラル.jpeg')}}");
        background-size: cover;
   }
+  .parudea{
+       background-image: url("{{asset('./img/パルデア.jpeg')}}");
+       background-size: cover;
+  }
      </style>
      <div class="mainCountry">
           @foreach($countries as $country)

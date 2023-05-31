@@ -10,26 +10,22 @@
 </head>
 <body>
   <style>
-    #ex_chart {max-width:1000px;max-height:600px;margin: 40px auto;}
+    #ex_chart {max-width:800px;max-height:500px;margin: 40px auto;}
     </style>
      <div class="black"></div>
      <header>
     <div class="logo">
       <img src="{{ asset('/img/ponta.png') }}" class="img"/>
       <img src="{{ asset('/img/pengin.png') }}" alt="" class="pengin">
+      <a href="{{route('pokemon')}}" class="pokemonLink"><img src="{{ asset('/img/ball_lb.png') }}" alt="" class="pengin"></a>
       <div>
       <a href="{{ route('home',['id' => 0]) }}" class="link">月</a>
       <a href="#" class="now link">週</a>
       </div>
     </div>
-    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
-          {{ __('Logout') }}
-     </a>
      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
       </form>
-    <img src="{{asset('/img/iconmonstr-gear-8-240.png')}}" alt="" class="setting" onclick="setting()">
     <section class="btn" onclick="recording()">
       <button class="record">記録・投稿</button>
     </section>
@@ -86,7 +82,7 @@
         yAxes: [{
             ticks: {
                 min: 0,
-                max:4
+                max: 8
                 //beginAtZero: true
             }
         }]
